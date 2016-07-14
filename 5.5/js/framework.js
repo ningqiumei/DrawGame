@@ -54,9 +54,10 @@ var app = {
 		console.log("--------countflagtwo-----" + countflag + "----" + toastids.length);
 		console.log("--------losefocusid-----" + losefocusid);
 		if (countflag == toastids.length) {
-			// navigator.app.exitApp();
+			// navigator.app.exitApp();			
 			document.getElementById('firstPage').style.display="block";
         	document.getElementById('indexhtml').style.display="none";
+        	document.getElementById('firstPagrButton').focus();
 		} else {
 			if (losefocusid == 5) {
 				var back = document.getElementById("toast-back-warm");
@@ -204,13 +205,15 @@ function experienceonclick(){
         	secondPage();
         	document.getElementById('firstPage').style.display="none";
         	document.getElementById('indexhtml').style.display="block";
+        	document.getElementById('moreinfo_speciallyeffect').focus();
         	loginstatus = "true";
         });
     }   
     else{
     	secondPage();
 		document.getElementById('firstPage').style.display="none";
-		document.getElementById('indexhtml').style.display="block";             
+		document.getElementById('indexhtml').style.display="block"; 
+    	document.getElementById('moreinfo_speciallyeffect').focus();	            
     }
 
 }
