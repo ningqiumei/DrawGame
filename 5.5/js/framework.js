@@ -122,12 +122,6 @@ var app = {
 			if (message.haslogin == "true") {
 				console.log("haslogin two:" + message.haslogin);
 				$("#islogin").text(message.haslogin);
-				var ul = document.getElementById("button-logo");
-				if (ul.style.display == "block") {
-					ul.style.display = "none";
-				} else {
-					ul.style.display = "none";
-				}
 				var ul1 = document.getElementById("button-been-logo");
 				if (ul1.style.display == "none") {
 					ul1.style.display = "block";
@@ -202,59 +196,6 @@ var app = {
 	},
 	triggleButton: function() {
 		cordova.require("coocaa-plugin-coocaaosapi.coocaaosapi");
-		//开通会员
-		document.getElementById("gotovipcenter_speciallyeffect").addEventListener("click", function() {
-			console.log("in gotovipcenter_speciallyeffect");
-			coocaaosapi.startMovieMemberCenter('qq', function(message) {
-				console.log(message);
-			}, function(error) {
-				console.log(error);
-			});
-		}, false);
-		//登录
-		document.getElementById("button-logo").addEventListener("click", function() {
-			var ul = document.getElementById("div-toast-img-12");
-			if (ul.style.display == "none") {
-				ul.style.display = "block";
-			} else {
-				ul.style.display = "block";
-			}
-			coocaaosapi.startUserSetting(function(message) {
-				console.log(message);
-			}, function(error) {
-				console.log(error);
-			});
-		}, false);
-		//已登录
-		document.getElementById("button-been-logo").addEventListener("click", function() {
-			var ul = document.getElementById("div-toast-img-12");
-			if (ul.style.display == "none") {
-				ul.style.display = "block";
-			} else {
-				ul.style.display = "block";
-			}
-			coocaaosapi.startUserSetting(function(message) {
-				console.log(message);
-			}, function(error) {
-				console.log(error);
-			});
-		}, false);
-		//获取更多机会
-		document.getElementById("button-img-3-1").addEventListener("click", function() {
-			coocaaosapi.startMovieMemberCenter('qq', function(message) {
-				console.log(message);
-			}, function(error) {
-				console.log(error);
-			});
-		}, false);
-		//没有中奖去影视首页
-		document.getElementById("button-img-4-1").addEventListener("click", function() {
-			coocaaosapi.startMovieHome(function(message) {
-				console.log(message);
-			}, function(error) {
-				console.log(error);
-			});
-		}, false);
 		
 		document.getElementById("button-nologin-3-1").addEventListener("click", function() {
 			var ul = document.getElementById("div-toast-img-12");

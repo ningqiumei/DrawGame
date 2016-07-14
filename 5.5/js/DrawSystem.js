@@ -25,7 +25,6 @@ $(function() {
 });
 //活动未开始 隐藏中奖名单区域
 function hideChild_000() {
-	document.getElementById("gotovipcenter_speciallyeffect").focus();
 	var ul = document.getElementById("bg_Operation-img-8");
 	if (ul.style.display == "block") {
 		ul.style.display = "none";
@@ -44,12 +43,7 @@ function hideChild_000() {
 	} else {
 		ul1.style.display = "none";
 	}
-	var ul1 = document.getElementById("startdDraw-1");
-	if (ul1.style.display == "none") {
-		ul1.style.display = "block";
-	} else {
-		ul1.style.display = "block";
-	}
+	
 }
 //显示抽奖按钮
 function showChild_011() {
@@ -87,6 +81,12 @@ function hideChild_001() {
 	} else {
 		ul003.style.display = "block";
 	}
+	var ul1 = document.getElementById("startdDraw-1");
+	if (ul1.style.display == "none") {
+		ul1.style.display = "block";
+	} else {
+		ul1.style.display = "block";
+	}
 	$("#text_info-41").text("活动马上开始，敬请期待！");
 }
 //活动未开始 隐藏中奖名单区域
@@ -116,6 +116,12 @@ function hideChild_002() {
 	} else {
 		ul.style.display = "block";
 		$("#text_info-41").text("活动已经结束...");
+	}
+	var ul1 = document.getElementById("startdDraw-2");
+	if (ul1.style.display == "none") {
+		ul1.style.display = "block";
+	} else {
+		ul1.style.display = "block";
 	}
 }
 //弹出框--活动已经结束
@@ -191,7 +197,7 @@ function getProductPackage() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/condition/" + activid_2,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/condition/" + activid_2,
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -282,7 +288,7 @@ function ensuretoaward(id) {
 			"lotteryAwardMemberId": Awardid_new,
 			"phone": phoneNumber
 		},
-		url: "http://114.215.211.53:8080/v1/lottery/video/setUserInfo/" + AccessToken_new,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/setUserInfo/" + AccessToken_new,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -329,7 +335,7 @@ function showChild_008() {
 				"phone": phone,
 				"code": captcha
 			},
-			url: "http://114.215.211.53:8080/v1/lottery/video/updateUserInfo/" + AccessToken_second,
+			url: "http://restful.lottery.coocaatv.com/v1/lottery/video/updateUserInfo/" + AccessToken_second,
 			dataType: "jsonp",
 			jsonp: "callback",
 			success: function(data) {
@@ -503,7 +509,7 @@ function myAwardList() {
 			"Phone": "phone",
 			"Captcha": "captcha"
 		},
-		url: "http://114.215.211.53:8080/v1/lottery/video/myAwards/" + MyAccessToken,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/myAwards/" + MyAccessToken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -559,7 +565,7 @@ function FairIntroduction() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -607,9 +613,9 @@ function FairIntroduction() {
 				showChild_011();
 			} else {
 				console.log("活动未开始。");
-				var ul = document.getElementById("bg_Operation-img-2-1");
-				if (ul.style.display == "block") {
-					ul.style.display = "none";
+				var ul = document.getElementById("activityNotStart");
+				if (ul.style.display == "none") {
+					ul.style.display = "block";
 				} else {
 					ul.style.display = "block";
 				}
@@ -651,7 +657,7 @@ function MoreInfo() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/detail/" + activid_1,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/detail/" + activid_1,
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -681,7 +687,7 @@ function LotteryNumber() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -772,7 +778,7 @@ function MoreInfoImage() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -800,7 +806,7 @@ function gotoStartDraw() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -859,7 +865,7 @@ function activityStartorNot() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -979,7 +985,7 @@ function startDraw() {
 		data: {
 			"macaddress": macaddress,
 		},
-		url: "http://114.215.211.53:8080/v1/lottery/video/lottery/" + macaddress + "/" + accesstoken,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/lottery/" + macaddress + "/" + accesstoken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -1009,7 +1015,7 @@ function AwardGetList() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://114.215.211.53:8080/v1/lottery/video/awardList/" + activid_3,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/awardList/" + activid_3,
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -1047,26 +1053,15 @@ function focuseffection() {
 	$('#gotovipcenter_speciallyeffect').blur(function() {
 		loseFocus(this.id);
 	});
-	//登录,如果用户没登录显示登录button
-	$('#button-logo').focus(function() {
-		gotFocus(this.id);
-	});
-	$('#button-logo').blur(function() {
-		loseFocus(this.id);
-	});
-	//登录,如果用户已登录
-	$('#button-been-logo').focus(function() {
-		gotFocus(this.id);
-	});
-	$('#button-been-logo').blur(function() {
-		loseFocus(this.id);
-	});
+	
 	//开始抽奖
 	$('#startdDraw').focus(function() {
-		gotFocus(this.id);
+		document.getElementById("bg_Operation-img-2").style.display= "none";
+		document.getElementById("bg_Operation-img-2-border").style.display= "block";
 	});
 	$('#startdDraw').blur(function() {
-		loseFocus(this.id);
+		document.getElementById("bg_Operation-img-2").style.display= "block";
+		document.getElementById("bg_Operation-img-2-border").style.display= "none";
 	});
 	//更多详情
 	$('#moreinfo_speciallyeffect').focus(function() {
@@ -1256,7 +1251,7 @@ function getCountDown() {
 			$.ajax({
 				type: "get",
 				async: true,
-				url: "http://114.215.211.53:8080/v1/lottery/video/sendMessage/" + phoneNumber,
+				url: "http://restful.lottery.coocaatv.com/v1/lottery/video/sendMessage/" + phoneNumber,
 				dataType: "jsonp",
 				jsonp: "callback",
 				jsonpCallback: "receive",
