@@ -1145,7 +1145,7 @@ button{
 	height: 100%;
 	outline: 0;
 	display: none;
-	background: url(../images/bgform.png);
+	background: url(../images/bgform_faf77e1.png);
 }
 #toast-text-7 {
 	position: absolute;
@@ -1460,7 +1460,7 @@ button{
 	height: 100%;
 	/*margin: 0 atuo;	*/
 	display: none;
-	background: url(../images/bgform.png);
+	background: url(../images/bgform_faf77e1.png);
 }
 
 /*#toast-text-9 {
@@ -1500,13 +1500,13 @@ button{
 	position: fixed;
 	/*1920*1080*/
 	left: 8.4375%;
-	top: 13.0926%;
+	top: 15.0926%;
 	width: 83.125%;
-	height: 45%;
+	height: 41.9444%;
 	margin: 0 atuo;
 	font-size: 24px;
 	border: 0;
-	overflow: hidden;
+	overflow: auto;
 	text-overflow: ellipsis;
 	background-color: rgba(0, 0, 0, 0);
 }
@@ -1879,11 +1879,11 @@ button{
 }
 
 ::-webkit-scrollbar-track {
-	background: url("../images/line.png") center;
+	background: url("../images/line_75bd771.png") center;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: url("../images/13.png") center no-repeat;
+	background: url("../images/13_8cee949.png") center no-repeat;
 	padding-left: 2px;
 	border-radius: 8px;
 	border: solid 2px #A6A6A6;
@@ -2064,7 +2064,7 @@ button{
 	height: 100%;
 	margin: 0 atuo;	
 	display: block;
-	background: url(../images/bgform.png);
+	background: url(../images/bgform_faf77e1.png);
 }
 
 #firstpage{

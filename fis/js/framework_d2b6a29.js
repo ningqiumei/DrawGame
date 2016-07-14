@@ -39,9 +39,6 @@ var app = {
 		var losefocusid;
 		var j = 0;
 		var toastids = document.getElementsByClassName("toast");
-		if(document.getElementById('firstPage').style.display=="block"){
-			navigator.app.exitApp();
-		}
 		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
@@ -54,9 +51,7 @@ var app = {
 		console.log("--------countflagtwo-----" + countflag + "----" + toastids.length);
 		console.log("--------losefocusid-----" + losefocusid);
 		if (countflag == toastids.length) {
-			// navigator.app.exitApp();
-			document.getElementById('firstPage').style.display="block";
-        	document.getElementById('indexhtml').style.display="none";
+			navigator.app.exitApp();
 		} else {
 			if (losefocusid == 5) {
 				var back = document.getElementById("toast-back-warm");

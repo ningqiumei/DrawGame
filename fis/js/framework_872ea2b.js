@@ -39,9 +39,6 @@ var app = {
 		var losefocusid;
 		var j = 0;
 		var toastids = document.getElementsByClassName("toast");
-		if(document.getElementById('firstPage').style.display=="block"){
-			navigator.app.exitApp();
-		}
 		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
