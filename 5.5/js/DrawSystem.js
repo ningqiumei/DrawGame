@@ -11,7 +11,6 @@ $(function() {
 	focuseffection(); //焦点效果
 	FairIntroduction(); //活动简介
 	//AwardGetList(); //中奖名单
-	//LotteryNumber(); //抽奖次数
 	//userBaseInfo(); //后台已经登录，首次加载页面自动登录
 	getCountDown(); //验证码倒计时
 	activityStartorNot(); //活动是否开始
@@ -362,6 +361,7 @@ function codeFlag() {
 	console.log("isCodeFlag=" + isCodeFlag);
 	if(isCodeFlag == "true") {
 		console.log("code id right");
+		
 	} else {
 		var ul = document.getElementById("codeIsWrong");
 		if(ul.style.display == "none") {
@@ -643,7 +643,7 @@ function FairIntroduction() {
 			}
 
 			AwardGetList();
-			setTimeout(LotteryNumber, 3000);
+			//setTimeout(LotteryNumber, 3000);
 		},
 		error: function(data) {
 			console.log(data);
@@ -702,7 +702,7 @@ function LotteryNumber() {
 			console.log("shibai...");
 			$("#text_info-40").text("0");
 			$("#drawleftnum").text("0");
-			LotteryNumber();
+				LotteryNumber();
 		}
 	});
 }
