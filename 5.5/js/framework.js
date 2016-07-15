@@ -42,7 +42,12 @@ var app = {
 		if(document.getElementById('firstPage').style.display == "block") {
 			navigator.app.exitApp();
 		}
-		for(j = 0; j < toastids.length; j++) {
+ 
+		if(document.getElementById('bg').style.display=="block"){
+			document.getElementById('bg').style.display="none";
+			document.getElementById('loadButtDiv').style.display="none";
+		}
+		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
 			if(status != "block") {
@@ -150,15 +155,16 @@ var app = {
 	triggleButton: function() {
 		cordova.require("coocaa-plugin-coocaaosapi.coocaaosapi");
 		//点击立即抽奖
-		document.getElementById("firstPagrButton").addEventListener("click", experienceonclick, false);
 
-		//点击APK图标
-		document.getElementById("apkbutt1").addEventListener("click", Apkclick, false);
-		document.getElementById("apkbutt2").addEventListener("click", Apkclick, false);
-		document.getElementById("apkbutt3").addEventListener("click", Apkclick, false);
-		document.getElementById("apkbutt4").addEventListener("click", Apkclick, false);
-		document.getElementById("apkbutt5").addEventListener("click", Apkclick, false);
-		document.getElementById("apkbutt6").addEventListener("click", Apkclick, false);
+		document.getElementById("firstPagrButton").addEventListener("click",experienceonclick ,false);
+		document.getElementById("loadButt").addEventListener("click",loadAndStart ,false);
+        //点击APK图标
+        document.getElementById("apkbutt1").addEventListener("click",Apkclick ,false);
+        document.getElementById("apkbutt2").addEventListener("click",Apkclick ,false);
+        document.getElementById("apkbutt3").addEventListener("click",Apkclick ,false);
+        document.getElementById("apkbutt4").addEventListener("click",Apkclick ,false);
+        document.getElementById("apkbutt5").addEventListener("click",Apkclick ,false);
+        document.getElementById("apkbutt6").addEventListener("click",Apkclick ,false);
 
 		document.getElementById("button-nologin-3-1").addEventListener("click", function() {
 			var ul = document.getElementById("div-toast-img-12");
@@ -201,33 +207,35 @@ function Apkclick(obj) {
 
 }
 
-function experienceonclick() {
-	console.log("status" + loginstatus);
-	if(loginstatus == "false") {
-		coocaaosapi.startUserSettingAndFinish(function(message) {
-			console.log(message);
-		}, function(error) {
-			console.log(error);
-		});
-		// document.getElementById('getimmediate').src="images/3.png";
-		coocaaosapi.addUserChanggedListener(function(message) {
-			console.log(message);
-			secondPage();
-			document.getElementById('firstPage').style.display = "none";
-			document.getElementById('indexhtml').style.display = "block";
-			document.getElementById('moreinfo_speciallyeffect').focus();
-			loginstatus = "true";
-		});
-	} else {
-		secondPage();
-		document.getElementById('firstPage').style.display = "none";
-		document.getElementById('indexhtml').style.display = "block";
-		document.getElementById('moreinfo_speciallyeffect').focus();
-	}
+function experienceonclick(){
+	console.log("status"+loginstatus);
+	if(loginstatus=="false"){
+		document.getElementById("bg").style.display="block";
+		document.getElementById("loadButtDiv").style.display="block";
+		document.getElementById('loadButt').focus();
+    }   
+    else{
+    	secondPage();
+		document.getElementById('firstPage').style.display="none";
+		document.getElementById('indexhtml').style.display="block"; 
+    	document.getElementById('moreinfo_speciallyeffect').focus();	            
+    }
 
 }
 
-function secondPage() {
+function loadAndStart(){
+	coocaaosapi.startUserSettingAndFinish(function(message)  {console.log(message); },function(error){console.log(error);});
+        // document.getElementById('getimmediate').src="images/3.png";
+    coocaaosapi.addUserChanggedListener(function(message){
+    	console.log(message);
+    	secondPage();
+    	document.getElementById('firstPage').style.display="none";
+    	document.getElementById('indexhtml').style.display="block";
+    	document.getElementById('moreinfo_speciallyeffect').focus();
+    	loginstatus = "true";
+    });
+}
+function secondPage(){
 	coocaaosapi.hasCoocaaUserLogin(function(message) {
 		console.log("haslogin " + message.haslogin);
 		if(message.haslogin == "true") {

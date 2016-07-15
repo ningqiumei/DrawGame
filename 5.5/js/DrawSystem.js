@@ -1401,18 +1401,22 @@ function shouyemusic() {
 }
 
 function buttFocus(obj){
-	var str = obj.id;
-	document.getElementById(str).style.width="17%";
+	var str = obj.children[2];
+	var id = str.getAttribute("id");
+	document.getElementById(id).style.display="block";
+	
 }
 
 function buttBlur(obj){
-	var str = obj.id;
-	document.getElementById(str).style.width="16%";
+	var str = obj.children[2];
+	var id = str.getAttribute("id");
+	document.getElementById(id).style.display="none";
+	
 }
 function luckFocus(obj){
-	document.getElementById("firstPagrButton").style.width="24%";
+	document.getElementById("buttonImgBorder").style.display="block";
 }
 
 function luckBlur(obj){
-	document.getElementById("firstPagrButton").style.width="23%";
+	document.getElementById("buttonImgBorder").style.display="none";
 }
