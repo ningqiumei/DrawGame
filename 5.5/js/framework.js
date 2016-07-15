@@ -1,8 +1,8 @@
 var app = {
 	canonical_uri: function(src, base_path) {
 		var root_page = /^[^?#]*\//.exec(location.href)[0],
-		root_domain = /^\w+\:\/\/\/?[^\/]+/.exec(root_page)[0],
-		absolute_regex = /^\w+\:\/\//;
+			root_domain = /^\w+\:\/\/\/?[^\/]+/.exec(root_page)[0],
+			absolute_regex = /^\w+\:\/\//;
 		// is `src` is protocol-relative (begins with // or ///), prepend protocol  
 		if (/^\/\/\/?/.test(src)) {
 			src = location.protocol + src;
@@ -254,32 +254,33 @@ function secondPage(){
 					$("#temp_userphonenumber").text(message.mobile);
 					var allnumber = $("#temp_userphonenumber").text();
 					console.log("----allnumber---"+allnumber);
+					
 				}, function(error) {
 					console.log(error);
 				});
 
-		} else {
-			console.log("haslogin three:" + message.haslogin);
-			$("#islogin").text(message.haslogin);
-		}
-	}, function(error) {
-		console.log(error);
-	});
+			} else {
+				console.log("haslogin three:" + message.haslogin);
+				$("#islogin").text(message.haslogin);
+			}
+		}, function(error) {
+			console.log(error);
+		});
 
-coocaaosapi.getDeviceInfo(function(message) {
-	console.log("panel " + message.panel);
-	console.log("version " + message.version);
-	console.log("model " + message.model);
-	console.log("chip " + message.chip);
-	console.log("mac " + message.mac);
-	console.log("chipid " + message.chipid);
-	console.log("androidsdk " + message.androidsdk);
-	console.log("devid " + message.devid);
-	console.log("activeid " + message.activeid);
-	$("#macaddressnum").text(message.mac);
-}, function(error) {
-	console.log(error);
-});
+		coocaaosapi.getDeviceInfo(function(message) {
+			console.log("panel " + message.panel);
+			console.log("version " + message.version);
+			console.log("model " + message.model);
+			console.log("chip " + message.chip);
+			console.log("mac " + message.mac);
+			console.log("chipid " + message.chipid);
+			console.log("androidsdk " + message.androidsdk);
+			console.log("devid " + message.devid);
+			console.log("activeid " + message.activeid);
+			$("#macaddressnum").text(message.mac);
+		}, function(error) {
+			console.log(error);
+		});
 
 coocaaosapi.getUserAccessToken(function(message) {
 	if (message.accesstoken != null) {
