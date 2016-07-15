@@ -42,6 +42,10 @@ var app = {
 		if(document.getElementById('firstPage').style.display=="block"){
 			navigator.app.exitApp();
 		}
+		if(document.getElementById('bg').style.display=="block"){
+			document.getElementById('bg').style.display="none";
+			document.getElementById('loadButtDiv').style.display="none";
+		}
 		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
@@ -149,7 +153,7 @@ var app = {
 		cordova.require("coocaa-plugin-coocaaosapi.coocaaosapi");
 		//点击立即抽奖
 		document.getElementById("firstPagrButton").addEventListener("click",experienceonclick ,false);
-
+		document.getElementById("loadButt").addEventListener("click",loadAndStart ,false);
         //点击APK图标
         document.getElementById("apkbutt1").addEventListener("click",Apkclick ,false);
         document.getElementById("apkbutt2").addEventListener("click",Apkclick ,false);
@@ -198,16 +202,9 @@ function Apkclick(obj){
 function experienceonclick(){
 	console.log("status"+loginstatus);
 	if(loginstatus=="false"){
-		coocaaosapi.startUserSettingAndFinish(function(message)  {console.log(message); },function(error){console.log(error);});
-        // document.getElementById('getimmediate').src="images/3.png";
-        coocaaosapi.addUserChanggedListener(function(message){
-        	console.log(message);
-        	secondPage();
-        	document.getElementById('firstPage').style.display="none";
-        	document.getElementById('indexhtml').style.display="block";
-        	document.getElementById('moreinfo_speciallyeffect').focus();
-        	loginstatus = "true";
-        });
+		document.getElementById("bg").style.display="block";
+		document.getElementById("loadButtDiv").style.display="block";
+		document.getElementById('loadButt').focus();
     }   
     else{
     	secondPage();
@@ -218,6 +215,18 @@ function experienceonclick(){
 
 }
 
+function loadAndStart(){
+	coocaaosapi.startUserSettingAndFinish(function(message)  {console.log(message); },function(error){console.log(error);});
+        // document.getElementById('getimmediate').src="images/3.png";
+    coocaaosapi.addUserChanggedListener(function(message){
+    	console.log(message);
+    	secondPage();
+    	document.getElementById('firstPage').style.display="none";
+    	document.getElementById('indexhtml').style.display="block";
+    	document.getElementById('moreinfo_speciallyeffect').focus();
+    	loginstatus = "true";
+    });
+}
 function secondPage(){
 	coocaaosapi.hasCoocaaUserLogin(function(message) {
 		console.log("haslogin " + message.haslogin);
