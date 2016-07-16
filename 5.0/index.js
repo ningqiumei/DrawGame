@@ -4,6 +4,9 @@ var img_src = __uri('images/caizhi.png');
 
 var userInfo = {"user_name" : "第五空间", "user_img": img_src, "user_mobile":"13863556925"};
 var activiInfo = {"left_times":0};
+
+//document.write("<script language='javascript' src=__uri('js/DrawSystem.js')></script>");
+
 window.onload = function () {
 
 	getUserInfo();
@@ -63,6 +66,6 @@ function secondPage(){
 
 	//TODO mobile
 	//$("#temp_userphonenumber").text(userInfo.user_mobile);
-	
+	start_call_func();
 }
 
