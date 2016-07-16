@@ -13,7 +13,8 @@ $(function() {
 	getCountDown(); //验证码倒计时
 	activityStartorNot(); //活动是否开始
 	MoreInfoImage(); //更多详情页图片
-	startmarquee(25, 40, 50, 1);//滚动效果
+	startmarquee(25, 40, 50, 1); //滚动效果
+	//CardPasswordinfo();
 	//console.log("toast display:" + document.getElementById("div-toast-img-12").style.display);
 	$("#text_info-1").text("参与方式：开通会员，即可参与抽奖，赢取巴西（里约热内卢）奥运之旅");
 	$("#text_info-7").text("活动已经结束!");
@@ -166,6 +167,7 @@ function showChild_016() {
 
 //确定以当前手机号领取奖品
 function ensuretoaward(id) {
+	var isReally = "true"//设置一个变量 区分实体还是虚体
 	var phoneNumber = $('#form-info-7-3').val();
 	var Awardid_new = $('#unseediv').text();
 	var userOpen_id = $('#userOpenId').text();
@@ -183,12 +185,16 @@ function ensuretoaward(id) {
 		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/setUserInfo/" + AccessToken_new,
 		dataType: "jsonp",
 		jsonp: "callback",
-		success: function(data) {
-		},
+		success: function(data) {},
 		error: function() {
 			alert('fail');
 		}
 	});
+	if (isReally=="false") {
+		CardPasswordinfo();
+	} else{
+		
+	}
 }
 //弹出填写手机号的详情页
 function showChild_007() {
@@ -275,6 +281,7 @@ function toWriteAgain() {
 }
 //悬浮提示框效果
 function func() {
+	var isReally = "true"//用来区分实体将还是虚体奖
 	var layer = document.createElement("div");
 	layer.id = "layer";
 	var style = {
@@ -294,7 +301,10 @@ function func() {
 		document.body.appendChild(layer);
 		//		$("#layer").text("3秒后回到抽奖页面");
 		//setTimeout("document.body.removeChild(layer)", 2000)
-		window.location.href = 'index.html';
+		if (isReally=="true") {
+			window.location.href = 'index.html';
+		} else{
+		}
 	}
 }
 //跳转回到抽奖主界面
@@ -460,12 +470,12 @@ function FairIntroduction() {
 			for(var i = 0; i < data.awardBeanList.length; i++) {
 				_AwardImage[i] = data.awardBeanList[i].awardPictureUrl;
 				console.log(_AwardImage[i] + " ok"); //获取指定图片url地址
-				if(data.awardBeanList[i].awardName == '谢谢参与') {
-				} else {
-					var _div = '<div title="Questions" onclick="onclickfunc(this)" class="wrap"  id="' + i + '" style="width: 25%; height: 100%; overflow: hidden; text-overflow: ellipsis; opacity: 1; float: left; ">' + '<div title ="AwardImage" class ="AwardImageUrl" style="width: 85%; height: 85%; padding-left: 0%; padding-top: 0%;  margin-top: 0.5%; padding-right: 2.5%;  overflow: hidden;  text-overflow: ellipsis; border: 0px solid black; opacity: 1; float: left;">' + '<img id="imageurladdress" style="width:100%; height:100% ;border:0 ; background: url(' + _AwardImage[i] + ');background-size:100%;"/>' + '</div>' + '<br/>' + '<div title="Detail" id="NO." tabindex="-1" style="width: 85%; text-align: center; border: 0px solid black; opacity: 1;">' + data.awardBeanList[i].awardName + '</div>' + '</div>';
-					$("#form-info-9-4").append(_div);
+				if(data.awardBeanList[i].awardName == '谢谢参与') {} else {
+					//var _div = '<div title="Questions" onclick="onclickfunc(this)" class="wrap"  id="' + i + '" style="width: 25%; height: 100%; overflow: hidden; text-overflow: ellipsis; opacity: 1; float: left; ">' + '<div title ="AwardImage" class ="AwardImageUrl" style="width: 85%; height: 85%; padding-left: 0%; padding-top: 0%;  margin-top: 0.5%; padding-right: 2.5%;  overflow: hidden;  text-overflow: ellipsis; border: 0px solid black; opacity: 1; float: left;">' + '<img id="imageurladdress" style="width:100%; height:100% ;border:0 ; background: url(' + _AwardImage[i] + ');background-size:100%;"/>' + '</div>' + '<br/>' + '<div title="Detail" id="NO." tabindex="-1" style="width: 85%; text-align: center; border: 0px solid black; opacity: 1;">' + data.awardBeanList[i].awardName + '</div>' + '</div>';
+					//$("#form-info-9-4").append(_div);
 				}
 			}
+			ScrollImgLeft();
 			AwardGetList();
 		},
 		error: function(data) {
@@ -473,6 +483,22 @@ function FairIntroduction() {
 		}
 	});
 
+}
+
+function ScrollImgLeft() {
+	var speed = 20;
+	var scroll_begin = document.getElementById("scroll_begin");
+	var scroll_end = document.getElementById("scroll_end");
+	var scroll_div = document.getElementById("scroll_div");
+	scroll_end.innerHTML = scroll_begin.innerHTML;
+
+	function Marquee() {
+		if(scroll_end.offsetWidth - scroll_div.scrollLeft <= 0)
+			scroll_div.scrollLeft -= scroll_begin.offsetWidth;
+		else
+			scroll_div.scrollLeft++;
+	}
+	var MyMar = setInterval(Marquee, speed);
 }
 //更多详情
 function MoreInfo() {
@@ -594,8 +620,7 @@ function MoreInfoImage() {
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
-		success: function(data) {
-		},
+		success: function(data) {},
 		error: function() {}
 	});
 }
@@ -653,8 +678,7 @@ function gotoStartDraw() {
 				$("#text_info-6-2").text("活动时间：" + month_activity_begin + "月" + day_activity_begin + "日-" + month_activity_end + "月" + day_activity_end + "日");
 			}
 		},
-		error: function() {
-		}
+		error: function() {}
 	});
 
 }
@@ -781,7 +805,7 @@ function startDraw() {
 	//向后台请求数据：角度，奖品ID，奖品名称，奖品等级   并传参macadress
 	var macaddress = $("#macaddressnum").text();
 	var accesstoken = $("#accesstoken").text();
-	console.log("accesstoken=" + accesstoken+ " accesstoken+macaddress=" + macaddress); //OK
+	console.log("accesstoken=" + accesstoken + " accesstoken+macaddress=" + macaddress); //OK
 
 	$.ajax({
 		type: "post",
@@ -1030,12 +1054,12 @@ function getCountDown() {
 			if(phoneNumber == "  请准确填写手机号") {
 				console.log("空" + phoneNumber);
 				var ul = document.getElementById("toastfalse");
-					ul.style.display = "block";
+				ul.style.display = "block";
 				$("#form-info-7-6-1").val("手机号不能为空，请重新填写。");
 				setTimeout("toWriteAgain()", 2000);
 			} else {
 				var ul = document.getElementById("toastfalse");
-					ul.style.display = "block";
+				ul.style.display = "block";
 				$("#form-info-7-6-1").val("手机号不匹配请重新填写。");
 				setTimeout("toWriteAgain()", 2000);
 			}
@@ -1112,14 +1136,14 @@ function choujiangmusic() {
 	$("#music").attr("src", "sounds/clickdraw.mp3");
 }
 
-function buttFocus(obj){
+function buttFocus(obj) {
 	var str = obj.children[2];
 	var id = str.getAttribute("id");
-	document.getElementById(id).style.display="block";
-	
+	document.getElementById(id).style.display = "block";
+
 }
 
-function buttBlur(obj){
+function buttBlur(obj) {
 	var str = obj.children[2];
 	var id = str.getAttribute("id");
 	document.getElementById(id).style.display="none";
@@ -1136,4 +1160,16 @@ function luckBlur(obj){
 function gotoSecondPage(){
 	document.getElementById("firstPage").style.display="none";
 	document.getElementById("indexhtml").style.display="block";
+}
+
+function CardPasswordinfo(){//需要多个参数传进来
+	document.getElementById("div-toast-img-2").style.display="block";
+	var name = "【贝瓦儿歌】七天会员卡";
+	var phone = "13728728225";
+	var mphone = phone.substr(3, 4);
+	var lphone = phone.replace(mphone, "****");
+	var card = "1234567";
+	var password = "123456";
+	var _li = '<font style="font-size: 25px;">您抽中的'+ name +'卡号和密码已发送至'+lphone+'手机上。</font><br/> <font style="font-size: 25px;">卡号 ：'+card+'</font><br/><font style="font-size: 25px;">密码 ：'+password+'</font>';
+	$("#cardpassword").append(_li);
 }

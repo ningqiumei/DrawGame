@@ -59,11 +59,10 @@ var app = {
 			}
 			else{navigator.app.exitApp();}
 		}
-		
 		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
-			if (status != "block") {
+			if(status != "block") {
 				countflag++;
 			} else {
 				losefocusid = j;
@@ -306,22 +305,44 @@ function secondPage(){
 		if (message.haslogin == "true") {
 			console.log("haslogin two:" + message.haslogin);
 			$("#islogin").text(message.haslogin);
-			var ul1 = document.getElementById("button-been-logo");
-			if (ul1.style.display == "none") {
-				ul1.style.display = "block";
-			} else {
-				ul1.style.display = "block";
-			}
+
+			//该接口有抽奖次数
+			var activid_4 = $("#activityid").text();
+			console.log("in framework activid_4 : " + activid_4);
+			var access_token_4 = $("#accesstoken").text();
+			console.log("in framework access_token_4 : " + access_token_4);
+
+			$.ajax({
+				type: "get",
+				async: true,
+				url: "http://restful.lottery.coocaatv.com/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
+				dataType: "jsonp",
+				jsonp: "callback",
+				success: function(data) {
+					console.log("in framework chenggong...");
+					var lotterynumber = data.number;
+					$("#text_info-40").text(lotterynumber);
+					$("#drawleftnum").text(lotterynumber);
+				},
+				error: function() {
+					console.log("in framework shibai...");
+					$("#text_info-40").text("0");
+					$("#drawleftnum").text("0");
+					LotteryNumber();
+				}
+			});
+
 			coocaaosapi.getUserInfo(function(message) {
 				console.log("external_info " + message.external_info);
 				console.log("open_id " + message.open_id);
-				console.log("mobile "+message.mobile);
-				console.log("nick_name "+message.nick_name);
+				console.log("mobile " + message.mobile);
+				console.log("nick_name " + message.nick_name);
 				$("#button-logo-3").text(message.nick_name);
 				var name_ss = $("#button-logo-3").text();
-				console.log("------name_ss---------"+name_ss);
+				console.log("------name_ss---------" + name_ss);
 				$("#userOpenId").text(message.open_id);
-
+				var userInfoImg = message.avatar;
+				$("#button-logo-2").attr("src",userInfoImg);
 				//这里用来验证如果信息里包含手机号的情况
 				$("#temp_userphonenumber").text(message.mobile);
 				var allnumber = $("#temp_userphonenumber").text();
