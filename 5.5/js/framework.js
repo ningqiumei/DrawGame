@@ -1,38 +1,38 @@
 var apkNode=[
-	{"apkname":"com.slanissue.tv.erge","flags":"-1"},
-	{"apkname":"com.lutongnet.ott.ggly","flags":"-1"},
-	{"apkname":"com.edufound.ott","flags":"-1"},
-	{"apkname":"cn.cheerz.icw","flags":"-1"},
-	{"apkname":"com.westingware.androidtv","flags":"-1"},
-	{"apkname":"com.lutongnet.ott.health","flags":"-1"},
-	];
+{"apkname":"com.slanissue.tv.erge","flags":"-1"},
+{"apkname":"com.lutongnet.ott.ggly","flags":"-1"},
+{"apkname":"com.edufound.ott","flags":"-1"},
+{"apkname":"cn.cheerz.icw","flags":"-1"},
+{"apkname":"com.westingware.androidtv","flags":"-1"},
+{"apkname":"com.lutongnet.ott.health","flags":"-1"},
+];
 var pakeIndex = 0;
 var app = {
-	canonical_uri: function(src, base_path) {
-		var root_page = /^[^?#]*\//.exec(location.href)[0],
-			root_domain = /^\w+\:\/\/\/?[^\/]+/.exec(root_page)[0],
-			absolute_regex = /^\w+\:\/\//;
-		// is `src` is protocol-relative (begins with // or ///), prepend protocol  
-		if (/^\/\/\/?/.test(src)) {
-			src = location.protocol + src;
-		}
-		// is `src` page-relative? (not an absolute URL, and not a domain-relative path, beginning 
-
-with /)  
-		else if (!absolute_regex.test(src) && src.charAt(0) != "/") {
-			// prepend `base_path`, if any  
-			src = (base_path || "") + src;
-		}
-		// make sure to return `src` as absolute  
-		return absolute_regex.test(src) ? src : ((src.charAt(0) == "/" ? root_domain : root_page) + 
-
-src);
-	},
-
-	rel_html_imgpath: function(iconurl) {
-		console.log(app.canonical_uri(iconurl.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1')));
-		return app.canonical_uri(iconurl.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1'));
-	},
+	canonical_uri:function(src, base_path) 
+    {
+        var root_page = /^[^?#]*\//.exec(location.href)[0],
+        root_domain = /^\w+\:\/\/\/?[^\/]+/.exec(root_page)[0],
+        absolute_regex = /^\w+\:\/\//;
+        // is `src` is protocol-relative (begins with // or ///), prepend protocol  
+        if (/^\/\/\/?/.test(src)) 
+        {  
+        src = location.protocol + src; 
+        }  
+    // is `src` page-relative? (not an absolute URL, and not a domain-relative path, beginning with /)  
+        else if (!absolute_regex.test(src) && src.charAt(0) != "/")  
+        {  
+            // prepend `base_path`, if any  
+            src = (base_path || "") + src; 
+        }
+    // make sure to return `src` as absolute  
+        return absolute_regex.test(src) ? src : ((src.charAt(0) == "/" ? root_domain : root_page) + src);  
+    },
+    
+    rel_html_imgpath:function(iconurl)
+    {
+        console.log(app.canonical_uri(iconurl.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1')));
+        return app.canonical_uri(iconurl.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1'));
+    },
 
 	// Application Constructor
 	initialize: function() {
@@ -74,8 +74,8 @@ src);
 		if (countflag == toastids.length) {
 			// navigator.app.exitApp();			
 			document.getElementById('firstPage').style.display="block";
-        	document.getElementById('indexhtml').style.display="none";
-        	document.getElementById('firstPagrButton').focus();
+			document.getElementById('indexhtml').style.display="none";
+			document.getElementById('firstPagrButton').focus();
 		} else {
 			if (losefocusid == 5) {
 				var back = document.getElementById("toast-back-warm");
@@ -114,9 +114,7 @@ src);
 			} else {
 				for (var i = 0; i < toastids.length; i++) {
 					$("#form-info-9-2").empty();
-					//console.log("The toastid in handleBackButton is(<7) " + toastids
-
-[i].id);
+					//console.log("The toastid in handleBackButton is(<7) " + toastids[i].id);
 					if (toastids[i].style.display == "block") {
 						toastids[i].style.display = "none";
 					} else {
@@ -148,138 +146,63 @@ src);
             loginstatus = message.haslogin;
             console.log("haslogin " + loginstatus);
 
-	        coocaaosapi.checkAPK(       	
-	        	apkNode[0].apkname,
-	        	function(message) {
-	        		document.getElementById('down1').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down1').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	coocaaosapi.checkAPK(       	
-	        	apkNode[1].apkname,
-	        	function(message) {
-	        		document.getElementById('down2').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down2').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	coocaaosapi.checkAPK(       	
-	        	apkNode[2].apkname,
-	        	function(message) {
-	        		document.getElementById('down3').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down3').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	coocaaosapi.checkAPK(       	
-	        	apkNode[3].apkname,
-	        	function(message) {
-	        		document.getElementById('down4').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down4').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	coocaaosapi.checkAPK(       	
-	        	apkNode[4].apkname,
-	        	function(message) {
-	        		document.getElementById('down5').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down5').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	coocaaosapi.checkAPK(       	
-	        	apkNode[5].apkname,
-	        	function(message) {
-	        		document.getElementById('down6').src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));					
-	        	},
-	        	function(error) {
-	        		document.getElementById('down6').src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-	        	}
-	    	); 
-	    	console.log("---------startcheck-------");
-        	document.getElementById('firstPagrButton').focus();
+            coocaaosapi.checkAPK(       	
+            	apkNode[0].apkname,
+            	function(message) {
+            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            coocaaosapi.checkAPK(       	
+            	apkNode[1].apkname,
+            	function(message) {
+            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            coocaaosapi.checkAPK(       	
+            	apkNode[2].apkname,
+            	function(message) {
+            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            coocaaosapi.checkAPK(       	
+            	apkNode[3].apkname,
+            	function(message) {
+            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            coocaaosapi.checkAPK(       	
+            	apkNode[4].apkname,
+            	function(message) {
+            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            coocaaosapi.checkAPK(       	
+            	apkNode[5].apkname,
+            	function(message) {
+            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            	},
+            	function(error) {
+            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	}
+            	); 
+            console.log("---------startcheck-------");
+            document.getElementById('firstPagrButton').focus();
         },function(error) { console.log(error);});
-
-		function hasApk(message){
-			console.log("------Index------"+pakeIndex+"--flags=1, package name = " +  apkNode
-
-[pakeIndex].apkname);
-			apkNode[pakeIndex].flags = "1";//success
-			if (pakeIndex >= 5) {
-				showIcon();
-			}
-			else{
-				pakeIndex ++;
-				coocaaosapi.checkAPK(	       	
-					apkNode[pakeIndex].apkname,
-					hasApk(message),
-					noApk(error)
-					);
-			}
-		}
-		function noApk(message){
-			console.log("------Index------"+pakeIndex+"--flags=0, package name = " +  apkNode
-
-[pakeIndex].apkname);
-			apkNode[pakeIndex].flags = "0";//fail
-			if (pakeIndex >= 5) {
-				showIcon();
-			}
-			else{
-				pakeIndex ++;
-				coocaaosapi.checkAPK(	       	
-		        	apkNode[pakeIndex].apkname,
-		        	hasApk(message),
-		        	noApk(error)
-				);
-			}
-		}
-		function showIcon(){
-			for (var i = 1; i < 7; i++) {
-				var flag = apkNode[i-1].flags;
-				if (flag == "1") {
-					document.getElementById('down'+i).src = app.rel_html_imgpath(__uri
-
-("../images/Has.png"));
-				}
-				else if(flag == "0"){
-					document.getElementById('down'+i).src = app.rel_html_imgpath(__uri
-
-("../images/Down.png"));
-				}
-			}
-		}
-       
 	},
 	// Update DOM on a Received Event
 	receivedEvent: function(id) {
@@ -351,32 +274,32 @@ function experienceonclick(){
 		document.getElementById("bg").style.display="block";
 		document.getElementById("loadButtDiv").style.display="block";
 		document.getElementById('loadButt').focus();
-    }   
-    else{
-    	secondPage();
+	}   
+	else{
+		secondPage();
 		document.getElementById('firstPage').style.display="none";
 		document.getElementById('indexhtml').style.display="block"; 
-    	document.getElementById('moreinfo_speciallyeffect').focus();	            
-    }
+		document.getElementById('moreinfo_speciallyeffect').focus();	            
+	}
 
 }
 
 function loadAndStart(){
 	coocaaosapi.startUserSettingAndFinish(function(message)  {console.log(message); },function(error)
 
-{console.log(error);});
+		{console.log(error);});
         // document.getElementById('getimmediate').src="images/3.png";
-    coocaaosapi.addUserChanggedListener(function(message){
-    	console.log(message);
-    	secondPage();
-    	document.getElementById('bg').style.display="none";
-    	document.getElementById('loadButt').style.display="none";
-    	document.getElementById('firstPage').style.display="none";
-    	document.getElementById('indexhtml').style.display="block";
-    	document.getElementById('moreinfo_speciallyeffect').focus();
-    	loginstatus = "true";
-    });
-}
+        coocaaosapi.addUserChanggedListener(function(message){
+        	console.log(message);
+        	secondPage();
+        	document.getElementById('bg').style.display="none";
+        	document.getElementById('loadButt').style.display="none";
+        	document.getElementById('firstPage').style.display="none";
+        	document.getElementById('indexhtml').style.display="block";
+        	document.getElementById('moreinfo_speciallyeffect').focus();
+        	loginstatus = "true";
+        });
+    }
 function secondPage(){
 	coocaaosapi.hasCoocaaUserLogin(function(message) {
 		console.log("haslogin " + message.haslogin);
@@ -389,7 +312,6 @@ function secondPage(){
 			} else {
 				ul1.style.display = "block";
 			}
-
 			coocaaosapi.getUserInfo(function(message) {
 				console.log("external_info " + message.external_info);
 				console.log("open_id " + message.open_id);
@@ -400,44 +322,44 @@ function secondPage(){
 				console.log("------name_ss---------"+name_ss);
 				$("#userOpenId").text(message.open_id);
 
-					//这里用来验证如果信息里包含手机号的情况
-					$("#temp_userphonenumber").text(message.mobile);
-					var allnumber = $("#temp_userphonenumber").text();
-					console.log("----allnumber---"+allnumber);
-					
-				}, function(error) {
-					console.log(error);
-				});
+				//这里用来验证如果信息里包含手机号的情况
+				$("#temp_userphonenumber").text(message.mobile);
+				var allnumber = $("#temp_userphonenumber").text();
+				console.log("----allnumber---"+allnumber);
+				
+			}, function(error) {
+				console.log(error);
+			});
 
-			} else {
-				console.log("haslogin three:" + message.haslogin);
-				$("#islogin").text(message.haslogin);
-			}
-		}, function(error) {
-			console.log(error);
-		});
+		} else {
+			console.log("haslogin three:" + message.haslogin);
+			$("#islogin").text(message.haslogin);
+		}
+	}, function(error) {
+		console.log(error);
+	});
 
-		coocaaosapi.getDeviceInfo(function(message) {
-			console.log("panel " + message.panel);
-			console.log("version " + message.version);
-			console.log("model " + message.model);
-			console.log("chip " + message.chip);
-			console.log("mac " + message.mac);
-			console.log("chipid " + message.chipid);
-			console.log("androidsdk " + message.androidsdk);
-			console.log("devid " + message.devid);
-			console.log("activeid " + message.activeid);
-			$("#macaddressnum").text(message.mac);
-		}, function(error) {
-			console.log(error);
-		});
+	coocaaosapi.getDeviceInfo(function(message) {
+		console.log("panel " + message.panel);
+		console.log("version " + message.version);
+		console.log("model " + message.model);
+		console.log("chip " + message.chip);
+		console.log("mac " + message.mac);
+		console.log("chipid " + message.chipid);
+		console.log("androidsdk " + message.androidsdk);
+		console.log("devid " + message.devid);
+		console.log("activeid " + message.activeid);
+		$("#macaddressnum").text(message.mac);
+	}, function(error) {
+		console.log(error);
+});
 
-coocaaosapi.getUserAccessToken(function(message) {
-	if (message.accesstoken != null) {
-		console.log("usertoken " + message.accesstoken);
-		$("#accesstoken").text(message.accesstoken);
-	} else {}
-}, function(error) {
-	console.log(error);
-});abf3b24e948a
+	coocaaosapi.getUserAccessToken(function(message) {
+		if (message.accesstoken != null) {
+			console.log("usertoken " + message.accesstoken);
+			$("#accesstoken").text(message.accesstoken);
+		} else {}
+	}, function(error) {
+		console.log(error);
+	});
 }
