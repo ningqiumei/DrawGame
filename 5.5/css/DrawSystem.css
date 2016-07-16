@@ -2206,6 +2206,7 @@ button {
 	text-align: center;
 	margin-top: -25%;
 	width: 100%;
+	height: auto;
 }
 #firstPagrButton{
 	margin: 0 auto;
@@ -2217,11 +2218,13 @@ button {
 
 #buttonImg{
 	width: 73%;
+	height: auto;
 }
 #buttonImgBorder{
-	width: 73%;
-	margin-top: -29.5%;
-	margin-left:13.5%; 
+	width: 17%;
+	position: absolute;
+	top: 54.7%;
+	left: 41.5%;
 }
 
 #apkIcon{

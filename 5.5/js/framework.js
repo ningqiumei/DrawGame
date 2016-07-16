@@ -1,3 +1,12 @@
+var apkNode=[
+	{"apkname":"com.slanissue.tv.erge","flags":"-1"},
+	{"apkname":"com.lutongnet.ott.ggly","flags":"-1"},
+	{"apkname":"com.edufound.ott","flags":"-1"},
+	{"apkname":"cn.cheerz.icw","flags":"-1"},
+	{"apkname":"com.westingware.androidtv","flags":"-1"},
+	{"apkname":"com.lutongnet.ott.health","flags":"-1"},
+	];
+var pakeIndex = 0;
 var app = {
 	canonical_uri: function(src, base_path) {
 		var root_page = /^[^?#]*\//.exec(location.href)[0],
@@ -40,12 +49,13 @@ var app = {
 		var j = 0;
 		var toastids = document.getElementsByClassName("toast");
 		if(document.getElementById('firstPage').style.display=="block"){
-			navigator.app.exitApp();
+			if(document.getElementById('bg').style.display=="block"){
+				document.getElementById('bg').style.display="none";
+				document.getElementById('loadButtDiv').style.display="none";
+			}
+			else{navigator.app.exitApp();}
 		}
-		if(document.getElementById('bg').style.display=="block"){
-			document.getElementById('bg').style.display="none";
-			document.getElementById('loadButtDiv').style.display="none";
-		}
+		
 		for (j = 0; j < toastids.length; j++) {
 			var status = toastids[j].style.display;
 			console.log(j + "toast display:" + toastids[j].style.display);
@@ -131,9 +141,107 @@ var app = {
             // console.log("haslogin " + message.haslogin);
             loginstatus = message.haslogin;
             console.log("haslogin " + loginstatus);
-        },function(error) { console.log(error);});
-        document.getElementById('firstPagrButton').focus();
 
+	        coocaaosapi.checkAPK(       	
+	        	apkNode[0].apkname,
+	        	function(message) {
+	        		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	coocaaosapi.checkAPK(       	
+	        	apkNode[1].apkname,
+	        	function(message) {
+	        		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	coocaaosapi.checkAPK(       	
+	        	apkNode[2].apkname,
+	        	function(message) {
+	        		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	coocaaosapi.checkAPK(       	
+	        	apkNode[3].apkname,
+	        	function(message) {
+	        		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	coocaaosapi.checkAPK(       	
+	        	apkNode[4].apkname,
+	        	function(message) {
+	        		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	coocaaosapi.checkAPK(       	
+	        	apkNode[5].apkname,
+	        	function(message) {
+	        		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+	        	},
+	        	function(error) {
+	        		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+	        	}
+	    	); 
+	    	console.log("---------startcheck-------");
+        	document.getElementById('firstPagrButton').focus();
+        },function(error) { console.log(error);});
+
+		function hasApk(message){
+			console.log("------Index------"+pakeIndex+"--flags=1, package name = " +  apkNode[pakeIndex].apkname);
+			apkNode[pakeIndex].flags = "1";//success
+			if (pakeIndex >= 5) {
+				showIcon();
+			}
+			else{
+				pakeIndex ++;
+				coocaaosapi.checkAPK(	       	
+					apkNode[pakeIndex].apkname,
+					hasApk(message),
+					noApk(error)
+					);
+			}
+		}
+		function noApk(message){
+			console.log("------Index------"+pakeIndex+"--flags=0, package name = " +  apkNode[pakeIndex].apkname);
+			apkNode[pakeIndex].flags = "0";//fail
+			if (pakeIndex >= 5) {
+				showIcon();
+			}
+			else{
+				pakeIndex ++;
+				coocaaosapi.checkAPK(	       	
+		        	apkNode[pakeIndex].apkname,
+		        	hasApk(message),
+		        	noApk(error)
+				);
+			}
+		}
+		function showIcon(){
+			for (var i = 1; i < 7; i++) {
+				var flag = apkNode[i-1].flags;
+				if (flag == "1") {
+					document.getElementById('down'+i).src = app.rel_html_imgpath(__uri("../images/Has.png"));
+				}
+				else if(flag == "0"){
+					document.getElementById('down'+i).src = app.rel_html_imgpath(__uri("../images/Down.png"));
+				}
+			}
+		}
+       
 	},
 	// Update DOM on a Received Event
 	receivedEvent: function(id) {
@@ -221,6 +329,8 @@ function loadAndStart(){
     coocaaosapi.addUserChanggedListener(function(message){
     	console.log(message);
     	secondPage();
+    	document.getElementById('bg').style.display="none";
+    	document.getElementById('loadButt').style.display="none";
     	document.getElementById('firstPage').style.display="none";
     	document.getElementById('indexhtml').style.display="block";
     	document.getElementById('moreinfo_speciallyeffect').focus();

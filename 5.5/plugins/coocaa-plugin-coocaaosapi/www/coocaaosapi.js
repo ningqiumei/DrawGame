@@ -228,6 +228,10 @@ cordova.define("coocaa-plugin-coocaaosapi.coocaaosapi", function(require, export
 
 /*******************************************应用相关***********************************************/
 
+CoocaaOSApi.prototype.checkAPK = function(apkName,success,error){
+  startapp.check(apkName, success, error);//false
+}
+
 /*
 *启动应用商城
 */
