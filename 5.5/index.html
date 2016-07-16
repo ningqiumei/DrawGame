@@ -109,10 +109,6 @@
 				<!--活动简介-->
 				<div id="text_info-0" readonly="readonly"></div>
 				<div id="text_info-1" readonly="readonly"></div>
-				<!--中奖名单 上下滚动效果-->
-				<!--<div id="text_info-2" class="mF_sd_tqq">
-					<ul class="msgs" id="scrollinglist"></ul>
-				</div>-->
 				<div class="box" id="marqueebox1">
 					<ul></ul>
 				</div>
@@ -120,8 +116,7 @@
 				<div id="text_info-2-1">活动马上开始哦！</div>
 				<div id="text_info-2-2">活动已经结束。</div>
 				<div id="text_info-3" readonly="readonly"></div>
-				<div id="text_info-4" readonly="readonly">您还有 次抽奖机会</div>
-				<div id="text_info-40" readonly="readonly"></div>
+				<div id="text_info-4" readonly="readonly">您还有<font id="text_info-40" readonly="readonly"></font>次抽奖机会</div>
 				<div id="text_info-41" readonly="readonly"></div>
 			</div>
 			<!--Toast-活动还未开始-->
@@ -170,10 +165,6 @@
 			<div id="div-toast-img-3" class="toast">
 				<img id="toast-img-3" src="images/nochance.png" />
 				<div id="text_info-9" readonly="readonly">您没有抽奖资格，在指定应用中购买学习卡满30元即可抽奖！</div>
-				<!--<button id="button-img-3-1">
-					<img id="toast-img-3-1" src="images/buttongetchance.png" />
-					<img id="toast-img-3-1-border" src="images/bordergetchance.png" />
-				</button>-->
 				<button id="button-img-3-2" onclick="cancelToast(this.id)">
 					<img id="toast-img-3-2" src="images/iKnow.png" />
 					<img id="toast-img-3-2-border" src="images/iKnow-border.png" />
@@ -211,7 +202,6 @@
 			<!--抽中奖品弹toast -->
 			<div id="toost-back-warm" class="toast">
 				<img id="toost-back-3" src="images/toastgetaward.png" />
-
 				<div id="foom-back-2"></div>
 				<div id="foom-back-3">您当前手机号为</div>
 				<div id="foom-back-4">确定以该手机号领取奖品吗？</div>
@@ -227,16 +217,16 @@
 			</div>
 
 			<div id="userOpenid" style="display: none;">
-				<!--islogin--><span id="islogin"></span>
-				<!--中奖ID--><span id="unseediv"></span>
-				<!--user open_id--><span id="userOpenId"></span>
-				<!--user phone--><span id="temp_userphonenumber"></span>
-				<!--leftnumber--><span id="drawleftnum"></span>
-				<!--macadress--><span id="macaddressnum"></span>
-				<!--activity ID--><span id="activityid"></span>
-				<!--AccessToken--><span id="accesstoken"></span>
-				<!--fivePhone--><span id="fivePhone"></span>
-				<!--code--><span id="codeflag"></span>
+				<span id="islogin"></span>
+				<span id="unseediv"></span>
+				<span id="userOpenId"></span>
+				<span id="temp_userphonenumber"></span>
+				<span id="drawleftnum"></span>
+				<span id="macaddressnum"></span>
+				<span id="activityid"></span>
+				<span id="accesstoken"></span>
+				<span id="fivePhone"></span>
+				<span id="codeflag"></span>
 			</div>
 		</div>
 
@@ -296,13 +286,11 @@
 		</div>
 		<!--详情页-->
 		<div id="div-toast-text-9" class="toast">
-			<!--onscroll="true"-->
 			<input id="form-info-9-0" disabled="disabled" value="活动规则"></input>
 			<input id="form-info-9-1" disabled="disabled"></input>
-			<span id="form-info-9-2"><!--onscroll="FocusChange(this.id)"--></span>
+			<span id="form-info-9-2"></span>
 			<input id="form-info-9-3" disabled="disabled" value="活动奖品"></input>
 			<span id="form-info-9-4"></span>
-			<!--onscroll="FocusChange(this.id)"-->
 		</div>
 		<!--我的奖品-->
 		<div id="div-toast-text-10" class="toast">
@@ -325,10 +313,10 @@
 		</div>
 		<div id="div-toast-img-12" class="toast" style="display: none;"></div>
 
-		<div id="toast-nologin-warm" class="toast">
+		<div id="toast-nologin-warm" class="toast"><!--这个toast已闲置留待更换-->
 			<img id="toast-nologin-3" src="images/toastnotaward.png" />
 			<div id="form-nologin-4" readonly="readonly">您还没有登录，请先登录。</div>
-			<button id="button-nologin-3-1"><!--onclick="gotohomepage()"-->
+			<button id="button-nologin-3-1">
 				<img id="toast-nologin-3-1" src="images/buttonensure.png" />
 				<img id="toast-nologin-3-1-border" src="images/borderensure.png"/>
 			</button>
