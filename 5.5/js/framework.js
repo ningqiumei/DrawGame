@@ -126,7 +126,7 @@ var app = {
 						ul2.style.display = "block";
 					}
 					$("#indexhtml :button").removeAttr("disabled");
-					document.getElementById("startdDraw").focus();
+					document.getElementById("moreinfo_speciallyeffect").focus();
 				}
 				console.log("--------countflagthree---------" + countflag);
 			}
@@ -148,7 +148,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[0].apkname,
             	function(message) {
-            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -157,7 +157,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[1].apkname,
             	function(message) {
-            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -166,7 +166,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[2].apkname,
             	function(message) {
-            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -175,7 +175,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[3].apkname,
             	function(message) {
-            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -184,7 +184,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[4].apkname,
             	function(message) {
-            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -193,7 +193,7 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[5].apkname,
             	function(message) {
-            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Has.png"));					
+            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
             		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Down.png"));
@@ -337,6 +337,7 @@ function secondPage(){
 				console.log("open_id " + message.open_id);
 				console.log("mobile " + message.mobile);
 				console.log("nick_name " + message.nick_name);
+				console.log(JSON.stringify(message.avatar));
 				$("#button-logo-3").text(message.nick_name);
 				var name_ss = $("#button-logo-3").text();
 				console.log("------name_ss---------" + name_ss);
@@ -383,4 +384,14 @@ function secondPage(){
 	}, function(error) {
 		console.log(error);
 	});
+}
+
+function keydownOnFirst(){
+	if (event.keyCode == "38") {
+		console.log("-------------up-------------");
+		var div1 = document.getElementById('firstPagrButton');
+		if(div1){
+			div1.focus();
+		}
+	}
 }

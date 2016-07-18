@@ -1101,10 +1101,10 @@ body {
 }
 
 .downIcon {
-	width: 50%;
-	height: 50%;
-	margin-top: -53%;
-	margin-left: 35%;
+	width: 90%;
+	height: 90%;
+	margin-top: -90%;
+	/*margin-left: 35%;*/
 }
 
 #loadButtDiv {
