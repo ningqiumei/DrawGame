@@ -78,32 +78,20 @@ var app = {
 		} else {
 			if (losefocusid == 5) {
 				var back = document.getElementById("toast-back-warm");
-				if (back.style.display == "none") {
 					back.style.display = "block";
-				} else {
-					back.style.display = "block";
-				}
 				document.getElementById("button-back-3-2").focus();
 				$("#button-img-5-1").attr("disabled", "disabled");
 				$("#indexhtml :button").attr("disabled", "disabled");
 				console.log("--------countflag === 5 ---------" + countflag);
 			} else if (losefocusid == 6) {
 				var back = document.getElementById("toast-back-warm");
-				if (back.style.display == "none") {
-					back.style.display = "block";
-				} else {
-					back.style.display = "block";
-				}
+				back.style.display = "block";
 				document.getElementById("button-back-3-2").focus();
 				$("#div-toast-img-6 :button").attr("disabled", "disabled");
 				$("#indexhtml :button").attr("disabled", "disabled");
 			} else if (losefocusid == 7) {
 				var back2 = document.getElementById("toast-back-warm");
-				if (back2.style.display == "none") {
 					back2.style.display = "block";
-				} else {
-					back2.style.display = "block";
-				}
 				document.getElementById("button-back-3-2").focus();
 				$("#toost-back-warm :button").attr("disabled", "disabled");
 				$("#div-toast-text-7 :button").attr("disabled", "disabled");
@@ -114,17 +102,9 @@ var app = {
 				for (var i = 0; i < toastids.length; i++) {
 					$("#form-info-9-2").empty();
 					//console.log("The toastid in handleBackButton is(<7) " + toastids[i].id);
-					if (toastids[i].style.display == "block") {
-						toastids[i].style.display = "none";
-					} else {
-						toastids[i].style.display = "none";
-					}
+					toastids[i].style.display = "none";
 					var ul2 = document.getElementById("deviceready");
-					if (ul2.style.display == "none") {
-						ul2.style.display = "block";
-					} else {
-						ul2.style.display = "block";
-					}
+					ul2.style.display = "block";
 					$("#indexhtml :button").removeAttr("disabled");
 					document.getElementById("moreinfo_speciallyeffect").focus();
 				}
@@ -232,17 +212,9 @@ var app = {
 
         document.getElementById("button-nologin-3-1").addEventListener("click", function() {
         	var ul = document.getElementById("div-toast-img-12");
-        	if (ul.style.display == "none") {
-        		ul.style.display = "block";
-        	} else {
-        		ul.style.display = "block";
-        	}
+        	ul.style.display = "block";
         	var ul = document.getElementById("toast-nologin-warm");
-        	if (ul.style.display == "block") {
-        		ul.style.display = "none";
-        	} else {
-        		ul.style.display = "none";
-        	}
+        	ul.style.display = "none";
         	coocaaosapi.startUserSetting(function(message) {
         		console.log(message);
         	}, function(error) {
@@ -306,16 +278,17 @@ function secondPage(){
 			console.log("haslogin two:" + message.haslogin);
 			$("#islogin").text(message.haslogin);
 
+
 			//该接口有抽奖次数
-			var activid_4 = $("#activityid").text();
-			console.log("in framework activid_4 : " + activid_4);
+//			var activid_4 = $("#activityid").text();
+//			console.log("in framework activid_4 : " + activid_4);
 			var access_token_4 = $("#accesstoken").text();
 			console.log("in framework access_token_4 : " + access_token_4);
 
 			$.ajax({
 				type: "get",
 				async: true,
-				url: "http://restful.lottery.coocaatv.com/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
+				url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/1"+ access_token_4,
 				dataType: "jsonp",
 				jsonp: "callback",
 				success: function(data) {
@@ -343,7 +316,13 @@ function secondPage(){
 				console.log("------name_ss---------" + name_ss);
 				$("#userOpenId").text(message.open_id);
 				var userInfoImg = message.avatar;
-				$("#button-logo-2").attr("src",userInfoImg);
+				var defaultImg = "../images/default.png";
+				if (typeof(userInfoImg) == "undefined") {
+					$("#button-logo-2").attr("src",defaultImg);
+				} else{
+					$("#button-logo-2").attr("src",userInfoImg);
+				}
+				console.log("userInfoImg="+userInfoImg);
 				//这里用来验证如果信息里包含手机号的情况
 				$("#temp_userphonenumber").text(message.mobile);
 				var allnumber = $("#temp_userphonenumber").text();
