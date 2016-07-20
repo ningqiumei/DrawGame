@@ -1137,14 +1137,14 @@ function choujiangmusic() {
 }
 
 function buttFocus(obj) {
-	var str = obj.children[2];
+	var str = obj.children[1];
 	var id = str.getAttribute("id");
 	document.getElementById(id).style.display = "block";
 
 }
 
 function buttBlur(obj) {
-	var str = obj.children[2];
+	var str = obj.children[1];
 	var id = str.getAttribute("id");
 	document.getElementById(id).style.display="none";
 	

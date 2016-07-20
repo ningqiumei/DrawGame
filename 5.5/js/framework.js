@@ -128,55 +128,59 @@ var app = {
             coocaaosapi.checkAPK(       	
             	apkNode[0].apkname,
             	function(message) {
-            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		document.getElementById('apk1').src = app.rel_html_imgpath(__uri("../images/beiwaas.png"));
             	},
             	function(error) {
-            		document.getElementById('down1').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            		// document.getElementById('apk1').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		
             	}
             	); 
             coocaaosapi.checkAPK(       	
             	apkNode[1].apkname,
             	function(message) {
-            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		document.getElementById('apk2').src = app.rel_html_imgpath(__uri("../images/guoguoas.png"));
             	},
             	function(error) {
-            		document.getElementById('down2').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            		// document.getElementById('apk2').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					            		           		
             	}
             	); 
             coocaaosapi.checkAPK(       	
             	apkNode[2].apkname,
             	function(message) {
-            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            			document.getElementById('apk3').src = app.rel_html_imgpath(__uri("../images/kuaileas.png"));				
             	},
             	function(error) {
-            		document.getElementById('down3').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            		
+            		// document.getElementById('apk3').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));
             	}
             	); 
             coocaaosapi.checkAPK(       	
             	apkNode[3].apkname,
             	function(message) {
-            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		document.getElementById('apk4').src = app.rel_html_imgpath(__uri("../images/caizhias.png"));
+            		// document.getElementById('apk4').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
-            	function(error) {
-            		document.getElementById('down4').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            	function(error) {          		
             	}
             	); 
             coocaaosapi.checkAPK(       	
             	apkNode[4].apkname,
             	function(message) {
-            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		document.getElementById('apk5').src = app.rel_html_imgpath(__uri("../images/baiyinas.png"));
+            		// document.getElementById('apk5').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
-            		document.getElementById('down5').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            		
             	}
             	); 
             coocaaosapi.checkAPK(       	
             	apkNode[5].apkname,
             	function(message) {
-            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
+            		document.getElementById('apk6').src = app.rel_html_imgpath(__uri("../images/jianshenas.png"));
+            		// document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/yianzhuang.png"));					
             	},
             	function(error) {
-            		document.getElementById('down6').src = app.rel_html_imgpath(__uri("../images/Down.png"));
+            		
             	}
             	); 
             console.log("---------startcheck-------");
