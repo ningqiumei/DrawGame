@@ -150,12 +150,19 @@ body {
 	text-overflow: ellipsis;
 }
 
-#moreinfo_speciallyeffect,#bg_Operation-img-6,#bg_Operation-img-6-border {
+#bg_Operation-img-6,#bg_Operation-img-6-border {
 	position: fixed;
 	left: 5.9896%;
 	top: 56.4815%;
 	width: 10.6771%;
 	height: 9.6296%;
+}
+#moreinfo_speciallyeffect{
+	position: fixed;
+	left: 0.9896%;
+	top: 0.4815%;
+	width: 1.1771%;
+	height: 1.1296%;
 }
 
 #myaward_speciallyeffect,#bg_Operation-img-7,#bg_Operation-img-7-border {
@@ -376,7 +383,7 @@ body {
 #text_info-9 {
 	position: fixed;
 	left: 32.5521%;
-	top: 41.0185%;
+	top: 42.0185%;
 	width: 33.5838%;
 	height: 9.0741%;
 	padding-top: 2%;
@@ -528,18 +535,25 @@ body {
 	height: 54.8148%;
 }
 
-#button-img-5-1,#button-img-3-2,#toast-img-5-1,#toast-img-5-1-border {
+#button-img-5-1,#toast-img-5-1,#toast-img-5-1-border {
 	position: fixed;
 	left: 43.5417%;
 	top: 60.2778%;
 	width: 12.0833%;
 	height: 9.7222%;
 }
+#button-img-3-2{
+	position: fixed;
+	left: 1.5417%;
+	top: 1.2778%;
+	width: 1.0833%;
+	height: 1.0222%;
+}
 
 #toast-img-3-2,#toast-img-3-2-border {
 	position: fixed;
 	left: 43.3333%;
-	top: 53.1481%;
+	top: 57.1481%;
 	width: 13.3333%;
 	height: 9.7222%;
 }
@@ -1198,7 +1212,7 @@ body {
 #cardpassword{
 	position: fixed;
 	left: 33.23%;
-	top: 41.5825%;
+	top: 40.0825%;
 	width: 32.5417%;
 	height: 28.7963%;
 	line-height: 35px;

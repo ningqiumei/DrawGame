@@ -83,6 +83,12 @@ var app = {
 				$("#button-img-5-1").attr("disabled", "disabled");
 				$("#indexhtml :button").attr("disabled", "disabled");
 				console.log("--------countflag === 5 ---------" + countflag);
+			}else if (losefocusid == 2) {
+				var back = document.getElementById("toast-back-warm");
+				back.style.display = "block";
+				document.getElementById("button-back-3-2").focus();
+				$("#div-toast-img-2 :button").attr("disabled", "disabled");
+				$("#indexhtml :button").attr("disabled", "disabled");
 			} else if (losefocusid == 6) {
 				var back = document.getElementById("toast-back-warm");
 				back.style.display = "block";
@@ -91,7 +97,7 @@ var app = {
 				$("#indexhtml :button").attr("disabled", "disabled");
 			} else if (losefocusid == 7) {
 				var back2 = document.getElementById("toast-back-warm");
-					back2.style.display = "block";
+				back2.style.display = "block";
 				document.getElementById("button-back-3-2").focus();
 				$("#toost-back-warm :button").attr("disabled", "disabled");
 				$("#div-toast-text-7 :button").attr("disabled", "disabled");
@@ -100,7 +106,6 @@ var app = {
 				window.location.href = 'index.html';
 			} else {
 				for (var i = 0; i < toastids.length; i++) {
-					$("#form-info-9-2").empty();
 					//console.log("The toastid in handleBackButton is(<7) " + toastids[i].id);
 					toastids[i].style.display = "none";
 					var ul2 = document.getElementById("deviceready");
@@ -226,6 +231,7 @@ var app = {
         	});
         }, false);
 
+		document.getElementById("button-rem-4-1").addEventListener("click",useNow ,false);
     }
 };
 
@@ -235,6 +241,18 @@ function Apkclick(obj){
 	var apk = obj.currentTarget.children;
 	console.log(apk);
 	var apkName = apk[0].getAttribute("apkName");
+	coocaaosapi.startOrInfor(
+		apkName,
+		function(message) {console.log(message); },
+		function(error) { console.log(error);}
+		);
+
+}
+
+function useNow(){
+	//$("#cardpassword").empty();
+	var apkName = $("#apkname").text();
+	console.log("......"+apkName);
 	coocaaosapi.startOrInfor(
 		apkName,
 		function(message) {console.log(message); },
@@ -281,34 +299,6 @@ function secondPage(){
 		if (message.haslogin == "true") {
 			console.log("haslogin two:" + message.haslogin);
 			$("#islogin").text(message.haslogin);
-
-
-			//该接口有抽奖次数
-//			var activid_4 = $("#activityid").text();
-//			console.log("in framework activid_4 : " + activid_4);
-			var access_token_4 = $("#accesstoken").text();
-			console.log("in framework access_token_4 : " + access_token_4);
-
-			$.ajax({
-				type: "get",
-				async: true,
-				url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/1"+ access_token_4,
-				dataType: "jsonp",
-				jsonp: "callback",
-				success: function(data) {
-					console.log("in framework chenggong...");
-					var lotterynumber = data.number;
-					$("#text_info-40").text(lotterynumber);
-					$("#drawleftnum").text(lotterynumber);
-				},
-				error: function() {
-					console.log("in framework shibai...");
-					$("#text_info-40").text("0");
-					$("#drawleftnum").text("0");
-					LotteryNumber();
-				}
-			});
-
 			coocaaosapi.getUserInfo(function(message) {
 				console.log("external_info " + message.external_info);
 				console.log("open_id " + message.open_id);
@@ -363,6 +353,7 @@ function secondPage(){
 		if (message.accesstoken != null) {
 			console.log("usertoken " + message.accesstoken);
 			$("#accesstoken").text(message.accesstoken);
+			LotteryNumber();
 		} else {}
 	}, function(error) {
 		console.log(error);
@@ -377,4 +368,30 @@ function keydownOnFirst(){
 			div1.focus();
 		}
 	}
+}
+
+function LotteryNumber() {
+	//该接口有抽奖次数
+	var access_token_4 = $("#accesstoken").text();
+	console.log("access_token_4 : " + access_token_4);
+	$.ajax({
+		type: "get",
+		async: true,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/1/" + access_token_4,
+		dataType: "jsonp",
+		jsonp: "callback",
+		success: function(data) {
+			console.log("chenggong...");
+			var lotterynumber = data.number;
+			console.log("chenggong..."+lotterynumber);
+			$("#text_info-40").text(lotterynumber);
+			$("#drawleftnum").text(lotterynumber);
+		},
+		error: function() {
+			console.log("shibai...");
+			$("#text_info-40").text("0");
+			$("#drawleftnum").text("0");
+			//LotteryNumber();
+		}
+	});
 }

@@ -16,7 +16,7 @@
 		<title>抽奖系统</title>
 	</head>
 
-	<body id="homepage" scroll="no" onkeydown ="keydownOnFirst()">
+	<body id="homepage" scroll="no" onkeydown="keydownOnFirst()">
 		<div id="deviceready" class="blink">
 			<div id="bg"></div>
 			<div id="firstPage">
@@ -139,17 +139,13 @@
 			<!--Toast-获得卡密奖品-->
 			<div id="div-toast-img-2" class="toast">
 				<img id="toast-img-2" src="images/pleaseremenber.png">
-				<div id="cardpassword">
-					<!--您抽中的【贝瓦儿歌】七天会员卡卡号和密码已发送至159****2600手机上。<br/> 卡号：
-					<span id="cardid">1234565</span><br/> 密码：
-					<span id="secrectnumber">3reet</span>-->
-				</div>
+				<div id="cardpassword"></div>
 
 				<button id="button-rem-4-1">
 					<img id="toast-rem-4-1" src="images/usenow.png" />
 					<img id="toast-rem-4-1-border" src="images/borderusenow.png" />
 				</button>
-				<button id="button-rem-4-2" onclick="cancelToast(this.id)">
+				<button id="button-rem-4-2" onclick="ensuretoaward(this.id)">
 					<img id="toast-rem-4-2" src="images/iknow1.png" />
 					<img id="toast-rem-4-2-border" src="images/borderiknow1.png" />
 				</button>
@@ -221,6 +217,7 @@
 				<span id="accesstoken"></span>
 				<span id="fivePhone"></span>
 				<span id="codeflag"></span>
+				<span id="apkname"></span>
 			</div>
 		</div>
 
@@ -282,26 +279,25 @@
 		<div id="div-toast-text-9" class="toast">
 			<input id="form-info-9-0" disabled="disabled" value="活动规则"></input>
 			<input id="form-info-9-1" disabled="disabled"></input>
-			<div id="form-info-9-2">
-				1、活动时间：7月20日-26日；<br/>
-				2、参与方式：活动期间在活动应用中（贝瓦儿歌、果果乐园、义方快乐学堂、才智小天地、百映优生活）购买vip即可参与大转盘抽奖（需登录酷开账号购买）；<br/>
-				3、奖品发放：抽中实物奖品的用户请填写正确的手机号码，客服将在活动结束后联系中奖用户发放奖品，奖品颜色和型号随机；体验卡等虚拟奖品将实时到账，请在抽奖页面【我的奖品】中查看；<br/>
-				4、对于恶意作弊刷奖的用户，酷开拥有取消其参与活动的权利，并有权收回其中奖奖品；<br/>
-				5、主办方在法律允许的范围内保留对本次活动的解释权。
-			</div>
+			<font id="form-info-9-2">
+				1、活动时间：7月20日-26日；<br/> 2、参与方式：活动期间在活动应用中（贝瓦儿歌、果果乐园、义方快乐学堂、才智小天地、百映优生活）购买vip即可参与大转盘抽奖（需登录酷开账号购买）；
+				<br/> 3、奖品发放：抽中实物奖品的用户请填写正确的手机号码，客服将在活动结束后联系中奖用户发放奖品，奖品颜色和型号随机；体验卡等虚拟奖品将实时到账，请在抽奖页面【我的奖品】中查看；
+				<br/> 4、对于恶意作弊刷奖的用户，酷开拥有取消其参与活动的权利，并有权收回其中奖奖品；
+				<br/> 5、主办方在法律允许的范围内保留对本次活动的解释权。
+			</font>
 			<input id="form-info-9-3" disabled="disabled" value="活动奖品"></input>
 			<!--<div id="form-info-9-4"></div>-->
 			<div id="scroll_div" class="scroll_div">
 				<div id="scroll_begin">
 					<ul id="scroll_ul">
-						<li><img src="images/scroll_1.png" ></li>
-						<li><img src="images/scroll_2.png" ></li>
-						<li><img src="images/scroll_3.png" ></li>
-						<li><img src="images/scroll_4.png" ></li>
-						<li><img src="images/scroll_5.png" ></li>
-						<li><img src="images/scroll_6.png" ></li>
-						<li><img src="images/scroll_7.png" ></li>
-						<li><img src="images/scroll_8.png" ></li>
+						<li><img src="images/scroll_1.png"></li>
+						<li><img src="images/scroll_2.png"></li>
+						<li><img src="images/scroll_3.png"></li>
+						<li><img src="images/scroll_4.png"></li>
+						<li><img src="images/scroll_5.png"></li>
+						<li><img src="images/scroll_6.png"></li>
+						<li><img src="images/scroll_7.png"></li>
+						<li><img src="images/scroll_8.png"></li>
 					</ul>
 				</div>
 				<div id="scroll_end"></div>
