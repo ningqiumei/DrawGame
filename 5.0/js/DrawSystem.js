@@ -12,9 +12,10 @@ function  start_call_func (argument) {
 	FairIntroduction(); //活动简介
 	getCountDown(); //验证码倒计时
 	activityStartorNot(); //活动是否开始
-	MoreInfoImage(); //更多详情页图片
+	//MoreInfoImage(); //更多详情页图片
 	startmarquee(25, 40, 50, 1); //滚动效果
 	//CardPasswordinfo();
+	ScrollImgLeft();
 	//console.log("toast display:" + document.getElementById("div-toast-img-12").style.display);
 	$("#text_info-1").text("参与方式：开通会员，即可参与抽奖，赢取巴西（里约热内卢）奥运之旅");
 	$("#text_info-7").text("活动已经结束!");
@@ -120,13 +121,13 @@ function getProductPackage() {
 	document.getElementById("button-img-3-2").focus();
 	$("#indexhtml :button").attr("disabled", "disabled");
 
-	var activid_2 = $("#activityid").text();
-	console.log("activid_2" + activid_2);
+//	var activid_2 = $("#activityid").text();
+//	console.log("activid_2" + activid_2);
 	//指定产品包有待后台修改
 //	$.ajax({
 //		type: "get",
 //		async: true,
-//		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/condition/" + activid_2,
+//		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/condition/1",
 //		dataType: "jsonp",
 //		jsonp: "callback",
 //		//jsonpCallback: "receive",
@@ -200,7 +201,7 @@ function ensuretoaward(id) {
 			"lotteryAwardMemberId": Awardid_new,
 			"phone": phoneNumber
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/setUserInfo/" + AccessToken_new,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/setUserInfo/" + AccessToken_new,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {},
@@ -241,7 +242,7 @@ function showChild_008() {
 				"phone": phone,
 				"code": captcha
 			},
-			url: "http://restful.lottery.coocaatv.com/v1/lottery/video/updateUserInfo/" + AccessToken_second,
+			url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/updateUserInfo/" + AccessToken_second,
 			dataType: "jsonp",
 			jsonp: "callback",
 			success: function(data) {
@@ -349,7 +350,7 @@ function showChild_009() {
 	var ul = document.getElementById("div-toast-text-9");
 	ul.style.display = "block";
 	document.getElementById("form-info-9-2").focus();
-	MoreInfo(); //向指定id插入后台获取的活动详细信息
+	//MoreInfo(); //向指定id插入后台获取的活动详细信息
 }
 
 function showChild_010() {
@@ -377,7 +378,7 @@ function myAwardList() {
 			"Phone": "phone",
 			"Captcha": "captcha"
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/myAwards/" + MyAccessToken,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/myAwards/" + MyAccessToken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -430,13 +431,13 @@ function FairIntroduction() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
 			//动态创建多个div插入文字；			
-			console.log("活动ID：" + data.awardBeanList[0].activeId);
-			$("#activityid").text(data.awardBeanList[0].activeId);
+//			console.log("活动ID：" + data.awardBeanList[0].activeId);
+//			$("#activityid").text(data.awardBeanList[0].activeId);
 
 			for(var i = 0; i < data.awardBeanList.length; i++) {
 				if(i == 0) {
@@ -484,16 +485,16 @@ function FairIntroduction() {
 				ul1.style.display = "none";
 			}
 			//活动详情里的奖品图片
-			var _AwardImage = new Array();
-			for(var i = 0; i < data.awardBeanList.length; i++) {
-				_AwardImage[i] = data.awardBeanList[i].awardPictureUrl;
-				console.log(_AwardImage[i] + " ok"); //获取指定图片url地址
-				if(data.awardBeanList[i].awardName == '谢谢参与') {} else {
-					//var _div = '<div title="Questions" onclick="onclickfunc(this)" class="wrap"  id="' + i + '" style="width: 25%; height: 100%; overflow: hidden; text-overflow: ellipsis; opacity: 1; float: left; ">' + '<div title ="AwardImage" class ="AwardImageUrl" style="width: 85%; height: 85%; padding-left: 0%; padding-top: 0%;  margin-top: 0.5%; padding-right: 2.5%;  overflow: hidden;  text-overflow: ellipsis; border: 0px solid black; opacity: 1; float: left;">' + '<img id="imageurladdress" style="width:100%; height:100% ;border:0 ; background: url(' + _AwardImage[i] + ');background-size:100%;"/>' + '</div>' + '<br/>' + '<div title="Detail" id="NO." tabindex="-1" style="width: 85%; text-align: center; border: 0px solid black; opacity: 1;">' + data.awardBeanList[i].awardName + '</div>' + '</div>';
-					//$("#form-info-9-4").append(_div);
-				}
-			}
-			ScrollImgLeft();
+//			var _AwardImage = new Array();
+//			for(var i = 0; i < data.awardBeanList.length; i++) {
+//				_AwardImage[i] = data.awardBeanList[i].awardPictureUrl;
+//				console.log(_AwardImage[i] + " ok"); //获取指定图片url地址
+//				if(data.awardBeanList[i].awardName == '谢谢参与') {} else {
+//					var _div = '<div title="Questions" onclick="onclickfunc(this)" class="wrap"  id="' + i + '" style="width: 25%; height: 100%; overflow: hidden; text-overflow: ellipsis; opacity: 1; float: left; ">' + '<div title ="AwardImage" class ="AwardImageUrl" style="width: 85%; height: 85%; padding-left: 0%; padding-top: 0%;  margin-top: 0.5%; padding-right: 2.5%;  overflow: hidden;  text-overflow: ellipsis; border: 0px solid black; opacity: 1; float: left;">' + '<img id="imageurladdress" style="width:100%; height:100% ;border:0 ; background: url(' + _AwardImage[i] + ');background-size:100%;"/>' + '</div>' + '<br/>' + '<div title="Detail" id="NO." tabindex="-1" style="width: 85%; text-align: center; border: 0px solid black; opacity: 1;">' + data.awardBeanList[i].awardName + '</div>' + '</div>';
+//					$("#form-info-9-4").append(_div);
+//				}
+//			}
+			//ScrollImgLeft();
 			AwardGetList();
 		},
 		error: function(data) {
@@ -519,41 +520,40 @@ function ScrollImgLeft() {
 	var MyMar = setInterval(Marquee, speed);
 }
 //更多详情
-function MoreInfo() {
-	//活动规则介绍
-	var activid_1 = $("#activityid").text();
-	console.log("activid_1:" + activid_1);
-	$.ajax({
-		type: "get",
-		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/detail/" + activid_1,
-		dataType: "jsonp",
-		jsonp: "callback",
-		//jsonpCallback: "receive",
-		success: function(data) {
-			var MoreInfo_web;
-			MoreInfo_all = data.activeDetail;
-			MoreInfo_web = MoreInfo_all.replace(/@/g, "<br/>"); //change all '@' to '\n'.
-			$("#form-info-9-2").append(MoreInfo_web);
-		},
-		error: function() {
-			console.log('fail');
-		}
-	});
-}
+//function MoreInfo() {
+//	//活动规则介绍
+//	var activid_1 = $("#activityid").text();
+//	console.log("activid_1:" + activid_1);
+//	$.ajax({
+//		type: "get",
+//		async: true,
+//		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/detail/1",
+//		dataType: "jsonp",
+//		jsonp: "callback",
+//		success: function(data) {
+//			var MoreInfo_web;
+//			MoreInfo_all = data.activeDetail;
+//			MoreInfo_web = MoreInfo_all.replace(/@/g, "<br/>"); //change all '@' to '\n'.
+//			$("#form-info-9-2").append(MoreInfo_web);
+//		},
+//		error: function() {
+//			console.log('fail');
+//		}
+//	});
+//}
 
 //抽奖机会次数
 function LotteryNumber() {
 	//该接口有抽奖次数
-	var activid_4 = $("#activityid").text();
-	console.log("activid_4 : " + activid_4);
+//	var activid_4 = $("#activityid").text();
+//	console.log("activid_4 : " + activid_4);
 	var access_token_4 = $("#accesstoken").text();
 	console.log("access_token_4 : " + access_token_4);
 
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/1" + access_token_4,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -629,19 +629,19 @@ function gotohomepage() {
 }
 
 //更多详情下的奖品图片
-function MoreInfoImage() {
-	//该接口有活动id、奖品送货方式、奖品id、奖品等级、奖品名称、奖品图片地址、奖品类型（虚实奖）
-	$.ajax({
-		type: "get",
-		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
-		dataType: "jsonp",
-		jsonp: "callback",
-		//jsonpCallback: "receive",
-		success: function(data) {},
-		error: function() {}
-	});
-}
+//function MoreInfoImage() {
+//	//该接口有活动id、奖品送货方式、奖品id、奖品等级、奖品名称、奖品图片地址、奖品类型（虚实奖）
+//	$.ajax({
+//		type: "get",
+//		async: true,
+//		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active",
+//		dataType: "jsonp",
+//		jsonp: "callback",
+//		//jsonpCallback: "receive",
+//		success: function(data) {},
+//		error: function() {}
+//	});
+//}
 //点击开始抽奖--根据时间判断执行何种后续功能
 function gotoStartDraw() {
 	//choujiangmusic();
@@ -660,7 +660,7 @@ function gotoStartDraw() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -716,7 +716,7 @@ function activityStartorNot() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/active",
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -831,7 +831,7 @@ function startDraw() {
 		data: {
 			"macaddress": macaddress,
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/lottery/" + macaddress + "/" + accesstoken,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/lottery/" + macaddress + "/" + accesstoken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -853,12 +853,12 @@ function startDraw() {
 }
 //中奖名单
 function AwardGetList() {
-	var activid_3 = $("#activityid").text();
-	console.log("activid_3" + activid_3);
+//	var activid_3 = $("#activityid").text();
+//	console.log("activid_3" + activid_3);
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/video/awardList/" + activid_3,
+		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/awardList/1",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -1057,7 +1057,7 @@ function getCountDown() {
 			$.ajax({
 				type: "get",
 				async: true,
-				url: "http://restful.lottery.coocaatv.com/v1/lottery/video/sendMessage/" + phoneNumber,
+				url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/sendMessage/" + phoneNumber,
 				dataType: "jsonp",
 				jsonp: "callback",
 				jsonpCallback: "receive",
