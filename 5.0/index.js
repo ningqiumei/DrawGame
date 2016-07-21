@@ -94,6 +94,7 @@ function get_user_func () {
 function initPage () {
 	document.getElementById('firstPagrButton').focus();
 	document.getElementById("firstPagrButton").addEventListener("click",experienceonclick ,false);
+	document.getElementById("loadButt").addEventListener("click",loadAndStart ,false);
 
 }
 
@@ -110,6 +111,12 @@ function experienceonclick(){
 		document.getElementById('indexhtml').style.display="block"; 
     	document.getElementById('moreinfo_speciallyeffect').focus();	            
     }
+}
+
+function loadAndStart () {
+		document.getElementById("bg").style.display="none";
+		document.getElementById("loadButtDiv").style.display="none";
+		document.getElementById('firstPagrButton').focus();
 }
 
 function secondPage(){
