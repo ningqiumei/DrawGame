@@ -951,12 +951,7 @@ function focuseffection() {
 	$('#button-img-4-2').blur(function() {
 		loseFocus(this.id);
 	});
-	$('#button-rem-4-1').focus(function() {
-		gotFocus(this.id);
-	});
-	$('#button-rem-4-1').blur(function() {
-		loseFocus(this.id);
-	});
+
 	$('#button-rem-4-2').focus(function() {
 		gotFocus(this.id);
 	});

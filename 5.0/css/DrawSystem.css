@@ -150,12 +150,19 @@ body {
 	text-overflow: ellipsis;
 }
 
-#moreinfo_speciallyeffect,#bg_Operation-img-6,#bg_Operation-img-6-border {
+#bg_Operation-img-6,#bg_Operation-img-6-border {
 	position: fixed;
 	left: 5.9896%;
 	top: 56.4815%;
 	width: 10.6771%;
 	height: 9.6296%;
+}
+#moreinfo_speciallyeffect{
+	position: fixed;
+	left: 0.9896%;
+	top: 0.4815%;
+	width: 1.1771%;
+	height: 1.1296%;
 }
 
 #myaward_speciallyeffect,#bg_Operation-img-7,#bg_Operation-img-7-border {
@@ -177,20 +184,20 @@ body {
 
 #text_info-0 {
 	position: fixed;
-	left: 8.3333%;
-	top: 36.3926%;
-	width: 19.5896%;
+	left: 7.8333%;
+	top: 35.8926%;
+	width: 20.5896%;
 	height: 6.9407%;
-	font-size: 19px;
+	font-size: 20px;
 }
 
 #text_info-1 {
 	position: fixed;
-	left: 8.3333%;
-	top: 44.6666%;
-	width: 18.4896%;
-	height: 11.0296%;
-	font-size: 18px;
+	left: 7.8333%;
+	top: 43.5666%;
+	width: 19.5896%;
+	height: 14.0296%;
+	font-size: 20px;
 	word-spacing: 30px;
 	overflow: hidden;
 }
@@ -376,7 +383,7 @@ body {
 #text_info-9 {
 	position: fixed;
 	left: 32.5521%;
-	top: 41.0185%;
+	top: 42.0185%;
 	width: 33.5838%;
 	height: 9.0741%;
 	padding-top: 2%;
@@ -503,7 +510,7 @@ body {
 }
 
 #toast-img-3-1,#toast-img-3-1-border,#button-img-3-1,#button-img-4-1,#toast-img-4-1 ,
-#toast-img-4-1-border,#button-rem-4-1 ,#toast-rem-4-1,#toast-rem-4-1-border {
+#toast-img-4-1-border,#toast-rem-4-1,#toast-rem-4-1-border {
 	position: fixed;
 	left: 36.25%;
 	top: 60.2778%;
@@ -511,8 +518,7 @@ body {
 	height: 9.7222%;
 }
 
-#button-img-4-2 ,#toast-img-4-2,#toast-img-4-2-border,#button-rem-4-2,#toast-rem-4-2,
-#toast-rem-4-2-border{
+#button-img-4-2 ,#toast-img-4-2,#toast-img-4-2-border{
 	position: fixed;
 	left: 49.9479%;
 	top: 60.2778%;
@@ -528,18 +534,25 @@ body {
 	height: 54.8148%;
 }
 
-#button-img-5-1,#button-img-3-2,#toast-img-5-1,#toast-img-5-1-border {
+#button-img-5-1,#toast-img-5-1,#toast-img-5-1-border {
 	position: fixed;
 	left: 43.5417%;
 	top: 60.2778%;
 	width: 12.0833%;
 	height: 9.7222%;
 }
+#button-img-3-2{
+	position: fixed;
+	left: 1.5417%;
+	top: 1.2778%;
+	width: 1.0833%;
+	height: 1.0222%;
+}
 
-#toast-img-3-2,#toast-img-3-2-border {
+#toast-img-3-2,#toast-img-3-2-border, #button-rem-4-2, #toast-rem-4-2, #toast-rem-4-2-border{
 	position: fixed;
 	left: 43.3333%;
-	top: 53.1481%;
+	top: 57.1481%;
 	width: 13.3333%;
 	height: 9.7222%;
 }
@@ -762,9 +775,11 @@ body {
 	font-size: 24px;
 	overflow: hidden;
 }
-
+#indexhtml{
+	display: none;
+}
 #form-info-9-2{
-	line-height: 160%;
+	line-height: 140%;
 }
 #form-info-9-20 {
 	overflow: auto;
@@ -1027,9 +1042,9 @@ body {
 
 #foom-back-2 {
 	position: fixed;
-	left: 40%;
+	left: 38%;
 	top: 38%;
-	width: 20%;
+	width: 24%;
 	height: 9%;
 	text-align: center;
 	font-size: 31px;
@@ -1171,7 +1186,7 @@ body {
 #cardpassword{
 	position: fixed;
 	left: 33.23%;
-	top: 41.5825%;
+	top: 40.0825%;
 	width: 32.5417%;
 	height: 28.7963%;
 	line-height: 35px;
