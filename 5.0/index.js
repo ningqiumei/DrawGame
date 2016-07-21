@@ -62,11 +62,15 @@ function getUserInfo () {
 						console.log("response data username  = " + data.nick_name);
 						userInfo.user_name = data.nick_name;
 						userInfo.user_img = data.avatar;
-						userInfo.user_mobile = '';
-
+						console.log("response data mobile  = " + data.mobile);
 						console.log("response data open_id  = " + data.open_id);
 						console.log("response data avatar  = " + data.avatar);
-						console.log("response data mobile  = " + data.mobile);
+						if (null == data.mobile) {
+							userInfo.user_mobile = '13863556925';
+						} else {
+							userInfo.user_mobile = data.mobile;
+						}
+						console.log("response userInfo.user_mobile  = " + userInfo.user_mobile);
 					}	
 		 		},
 				error: function() {

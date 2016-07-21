@@ -227,7 +227,7 @@ function ensuretoaward(id) {
 			"lotteryAwardMemberId": Awardid_new,
 			"phone": phoneNumber
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/confirm/" + Awardid_new + "/" + phoneNumber + "/" + AccessToken_new,
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/confirm/" + Awardid_new + "/" + phoneNumber + "/" + AccessToken_new,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -273,7 +273,7 @@ function showChild_008() {
 				"phone": phone,
 				"code": captcha
 			},
-			url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/updateUserInfo/" + awardid + "/" + phone + "/" + captcha + "/" + AccessToken_second,
+			url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/updateUserInfo/" + awardid + "/" + phone + "/" + captcha + "/" + AccessToken_second,
 			dataType: "jsonp",
 			jsonp: "callback",
 			success: function(data) {
@@ -410,7 +410,7 @@ function myAwardList() {
 			"Phone": "phone",
 			"Captcha": "captcha"
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/myAwards/1/" + MyAccessToken,
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/myAwards/163/" + MyAccessToken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -462,7 +462,7 @@ function FairIntroduction() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/active/163",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -548,7 +548,7 @@ function LotteryNumber() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/1/" + access_token_4,
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/leftNumber/163/" + access_token_4,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -640,7 +640,7 @@ function gotoStartDraw() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/active/163",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -696,7 +696,7 @@ function activityStartorNot() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/active/1",
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/active/163",
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -791,7 +791,7 @@ function startDraw() {
 		})
 	};
 	//向后台请求数据：角度，奖品ID，奖品名称，奖品等级   并传参macadress
-	var macaddress = $("#macaddressnum").text();
+	var macaddress = "1ca770d3efe3"; //$("#macaddressnum").text();
 	var accesstoken = $("#accesstoken").text();
 	console.log("accesstoken=" + accesstoken + " accesstoken+macaddress=" + macaddress); //OK
 
@@ -801,7 +801,7 @@ function startDraw() {
 		data: {
 			"macaddress": macaddress,
 		},
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/lottery/1/" + macaddress + "/" + accesstoken,
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/lottery/163/" + macaddress + "/" + accesstoken,
 		dataType: "jsonp",
 		jsonp: "callback",
 		success: function(data) {
@@ -837,7 +837,7 @@ function AwardGetList() {
 	$.ajax({
 		type: "get",
 		async: true,
-		url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/awardList/1",
+		url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/awardList/163",
 		dataType: "jsonp",
 		jsonp: "callback",
 		//jsonpCallback: "receive",
@@ -1036,7 +1036,7 @@ function getCountDown() {
 			$.ajax({
 				type: "get",
 				async: true,
-				url: "http://restful.lottery.coocaatv.com/v1/lottery/edu/sendMessage/" + phoneNumber,
+				url: "http://beta.restful.lottery.coocaatv.com/v1/lottery/edu/sendMessage/" + phoneNumber,
 				dataType: "jsonp",
 				jsonp: "callback",
 				jsonpCallback: "receive",
