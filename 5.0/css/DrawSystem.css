@@ -763,6 +763,9 @@ body {
 	overflow: hidden;
 }
 
+#form-info-9-2{
+	line-height: 160%;
+}
 #form-info-9-20 {
 	overflow: auto;
 	text-overflow: ellipsis;
