@@ -1,8 +1,8 @@
 
 var isLogin = 1; // -1 is initial, 0 is no login, 1 is logined 
-var img_src = __uri('images/caizhi.png');
+var img_src = __uri('images/default.png');
 
-var userInfo = {"user_name" : "第五空间", "user_img": img_src, "user_mobile":"13863556925"};
+var userInfo = {"user_name" : "", "user_img": img_src, "user_mobile":""};
 var activiInfo = {"left_times":0};
 var xmlhttp = null;
 
@@ -128,8 +128,11 @@ function secondPage(){
 	//$("#text_info-40").text(activiInfo.left_times);
 	//$("#drawleftnum").text(lotterynumber);
 	$("#accesstoken").text(userInfo.session);
+	console.log("userInfo.session = " + userInfo.session);
+	
 	//TODO mobile
 	$("#temp_userphonenumber").text(userInfo.user_mobile);
+	LotteryNumber();
 	start_call_func();
 }
 
@@ -158,3 +161,4 @@ function sendHTTPRequest(url, func)
     console.log("php is null");
   }
 }
+

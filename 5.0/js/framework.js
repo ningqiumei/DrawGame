@@ -241,33 +241,6 @@ function secondPage(){
 		if(message.haslogin == "true") {
 			console.log("haslogin two:" + message.haslogin);
 			$("#islogin").text(message.haslogin);
-
-			//该接口有抽奖次数
-			var activid_4 = $("#activityid").text();
-			console.log("in framework activid_4 : " + activid_4);
-			var access_token_4 = $("#accesstoken").text();
-			console.log("in framework access_token_4 : " + access_token_4);
-
-			$.ajax({
-				type: "get",
-				async: true,
-				url: "http://restful.lottery.coocaatv.com/v1/lottery/video/leftNumber/" + activid_4 + "/" + access_token_4,
-				dataType: "jsonp",
-				jsonp: "callback",
-				success: function(data) {
-					console.log("in framework chenggong...");
-					var lotterynumber = data.number;
-					$("#text_info-40").text(lotterynumber);
-					$("#drawleftnum").text(lotterynumber);
-				},
-				error: function() {
-					console.log("in framework shibai...");
-					$("#text_info-40").text("0");
-					$("#drawleftnum").text("0");
-					LotteryNumber();
-				}
-			});
-
 			coocaaosapi.getUserInfo(function(message) {
 				console.log("external_info " + message.external_info);
 				console.log("open_id " + message.open_id);
