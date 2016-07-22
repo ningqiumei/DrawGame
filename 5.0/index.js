@@ -46,7 +46,7 @@ function getUserInfo () {
 	$.ajax({
 				type: "get",
 				async: true,
-				url: "http://beta.passport.coocaa.com/getInfo/bySessionId?sessionId=" + session,
+				url: "http://passport.coocaa.com/getInfo/bySessionId?sessionId=" + session,
 				dataType: "jsonp",
 				jsonp: "callback",
 				success: function(data) {
@@ -66,7 +66,7 @@ function getUserInfo () {
 						console.log("response data open_id  = " + data.open_id);
 						console.log("response data avatar  = " + data.avatar);
 						if (null == data.mobile) {
-							userInfo.user_mobile = '13863556925';
+							userInfo.user_mobile = '';
 						} else {
 							userInfo.user_mobile = data.mobile;
 						}
